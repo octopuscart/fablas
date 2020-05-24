@@ -289,7 +289,7 @@
                                                 <li class="active"><a href="#">About Us</a></li>
                                                 <li class="active"><a href="#">Services</a></li>
                                                 <li class="active"><a href="#">Career</a></li>
-                                                <li class="active"><a href="#">Contact U</a></li>
+                                                <li class="active"><a href="#">Contact Us</a></li>
 
                                             </ul>
                                         </nav>

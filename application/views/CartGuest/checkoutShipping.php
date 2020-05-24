@@ -75,7 +75,7 @@ $this->load->view('layout/header');
     .freeshippingnote{
         color:red;
     }
-    
+
 </style>
 
 
@@ -157,7 +157,7 @@ $this->load->view('layout/header');
                                                     <?php echo $value['address1']; ?>,<br/>
                                                     <?php echo $value['address2']; ?>,<br/>
                                                     <?php echo $value['city']; ?><br/>
- <?php echo $value['zipcode']=='on'?'<span class="freeshippingnote">Free shipping at Tsim Sha Tsui<span>':''; ?>
+                                                    <?php echo $value['zipcode'] == 'on' ? '<span class="freeshippingnote">Free shipping at Tsim Sha Tsui<span>' : ''; ?>
                                                 </p>
                                             </div>
                                         </div>
@@ -291,16 +291,14 @@ $this->load->view('Cart/noproduct');
                                 </td>
                             </tr>
                             <tr>
-                                <td style="line-height: 25px;" colspan="2">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="zipcode"> Please check if address belongs to Tsim Sha Tsui
-
-                                        </label>
-                                    </div>
-                                 
-
+                            <tr>
+                                <td style="line-height: 25px;">
+                                    <span for="name"><b>Zip/Postal</b></span>
                                 </td>
+                                <td>
+                                    <input type="text"  name="zipcode" class="form-control " value="" style="height: 10%;">
+                                </td>
+                            </tr>
                             </tr>
 
 

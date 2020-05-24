@@ -11,7 +11,7 @@ switch ($baselink) {
     case "http://localhost":
         $baselinkmain = $baselink . $configuration['localpath'];
         break;
-    case "http://192.168.1.2":
+    case "http://192.168.1.3":
         $baselinkmain = $baselink . $configuration['localpath'];
         break;
     default:
@@ -32,7 +32,7 @@ switch ($baselink) {
 
 define('ADMINURL', $adminlinkmain);
 
-define('PRODUCTIMAGELINK', $adminlinkmain."/assets/product_images/");
+define('PRODUCTIMAGELINK', $baselinkmain."/assets/products/");
 
 
 define('imageserver', $baselinkmain . "assets_main/productimages/");
