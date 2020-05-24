@@ -604,7 +604,7 @@ b.barcomb-list {
 
 .mean-container .mean-bar a.logo-mobile-menu {
     width: 100%;
-    background-color: #FFEB3B;
+    /*background-color: #FFEB3B;*/
     box-sizing: border-box;
 }
 
@@ -709,11 +709,11 @@ b.barcomb-list {
     font-size: 20px;
     margin-bottom: 10px;
     text-transform: uppercase;
-    color: #d92229;
+    color: #ffffff;
 }
 
 .inner-page-banner-area {
-    background: #ffeb3b;
+    background: #102a83;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -726,7 +726,7 @@ b.barcomb-list {
 }
 
 .inner-page-banner-area .breadcrumb-area ul li a {
-    color: #000000;}
+    color: #fff;}
 
 .inner-page-banner-area .breadcrumb-area {
     position: initial;
@@ -1100,8 +1100,9 @@ b.barcomb-list {
 .productbuttonscontainer button {
     margin: 0 2px 0 0;
     display: inline-block;
-    border: 1px solid #ffeb3b;
-    background: #ffeb3b;
+    border: 1px solid #102a83;
+    background: #102a83;
+    color: white;
 }
 
 .btn-apply-coupon {
@@ -1247,12 +1248,13 @@ b.barcomb-list {
 }
 
 .movieblockhome{
-    background: #d92229;
+    /*background: #d92229;*/
     padding: 50px 0px;
 }
 
-.movieblockhome .brand-area-box-l h1{
-    color: #ffeb3b;
+.movieblockhome .brand-area-box-l h1 {
+    color: #e30016;
+    font-size:28px;
 }
 
 .movieblockhome .brand-area-box-l span{
@@ -1282,7 +1284,7 @@ b.barcomb-list {
 }
 
 .breadcrumb-area li {
-    color: black!important;
+    color: white!important;
 }
 
 .productlistborder.activeproduct {

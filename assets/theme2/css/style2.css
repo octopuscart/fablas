@@ -1,6 +1,6 @@
 .mainsitelogo{
-    height: 85px;
-    margin-top: -27px;
+    /*    height: 85px;
+        margin-top: -27px;*/
 }
 
 .category-menu-title {
@@ -15,8 +15,8 @@
 }
 
 .stickheadersitelogo{
-    height: 60px;
-    margin-top: -9px
+    /*    height: 60px;
+        margin-top: -9px*/
 }
 
 .header-area-style3.stick .hideonstickheader{
@@ -69,15 +69,15 @@
 .search-area .input-group {
     width: 102%;
     margin: 0 auto;
-    border-top: 1px solid #ffeb3b!important;
-    border-bottom: 1px solid #ffeb3b!important;
-    border-left: 1px solid #ffeb3b!important;
+    border-top: 1px solid #102a83!important;
+    border-bottom: 1px solid #102a83!important;
+    border-left: 1px solid #102a83!important;
     padding: 0px 0px 0px 0px;
-    border: 1px solid #ffeb3b;
+    border: 1px solid #102a83;
 }
 
 .btn-group .btn-metro-search{
-    background: #ffeb3b!important;
+    background: #102a83!important;
 }
 
 .maincartarea{
@@ -98,11 +98,14 @@
 }
 
 .header-area-style3 .header-top .header-top-inner-top {
+
     background: transparent;
     border-bottom: 1px solid #b6b6b6;
-    background: #ffeb3b;
+    background: #102a83;
     padding: 0;
-    border: 1px solid #ffeb3b;
+    border: 1px solid #102a83;
+    color: white;
+
 }
 .cart-area {
     /* padding-bottom: 15px; */
@@ -110,7 +113,7 @@
     background: #d92229;
     padding: 10px;
     border-radius: 11px;
-    /* border: 3px solid #ffeb3b; */
+    /* border: 3px solid #102a83; */
     display: inline;
     /* margin-top: -21px; */
 }
@@ -140,14 +143,14 @@
 
 .main-slider2 .slider-3 h2 span {
     font-weight: 600;
-    color: #ffeb3b;
+    color: #102a83;
     font-size: 60px;
 }
 
 
 span.keywordfooter {
     text-transform: capitalize;
-     color: white; 
+    color: white; 
 }
 
 .footertable{
@@ -164,11 +167,11 @@ span.keywordfooter {
 
 
 .footertable td, .footertable th{
-      padding: 20px 10px;
+    padding: 20px 10px;
 }
 
 .productlistmeddile{
-      background: #EEEEEE;
+    background: #EEEEEE;
     height: 265px!important;
     padding: 20px 0px;
 }
@@ -177,11 +180,49 @@ span.keywordfooter {
 .cart-content .cart-area-inc{
     width: 100px;
     text-align: center;
-    border: 1px solid#ffeb3b;
+    border: 1px solid#102a83;
     margin-top: -9px;
 }
 
 .overflow-y-400{
     overflow-y: auto;
     height: 400px;
+}
+
+.header-area-style3 .header-top .header-top-inner-top .header-contact ul li i {
+    color: #ffffff;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.header-area-style3 .header-top .header-top-inner-top .header-contact ul li a {
+    color: #ffffff;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.header-area-style3 .header-top .header-top-inner-top .account-wishlist ul li a {
+    color: #ffffff;
+}
+
+.header-area-style3 .header-top .header-top-inner-top .account-wishlist ul li i {
+    color: #ffffff;
+}
+
+.header-area-style3 .header-top .header-top-inner-bottom .search-area .input-group .input-group-btn .btn-group .btn-metro-search {
+    padding: 15px 12px;
+}
+.header-area-style3 .header-top .header-top-inner-bottom .search-area .input-group .input-group-btn .btn-group .btn-metro-search span {
+    color: #ffffff;
+}
+
+.search-area .input-group .input-group-btn .btn-group .btn-metro-search {
+    padding: 14px 12px;
+        color: white;
 }

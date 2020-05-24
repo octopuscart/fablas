@@ -108,7 +108,8 @@ $image2 = "";
                             foreach ($categories as $catkey => $catvalue) {
                                 ?>
                                 <li>
-                                    <a href="<?php echo site_url('Product/productList/1/' . $catvalue['id']) ?>">
+                                    <!--<a href="<?php echo site_url('Product/productList/1/' . $catvalue['id']) ?>">-->
+                                         <a href="<?php echo site_url('Product/productList/1/0') ?>">
                                         <?php echo $catvalue['category_name']; ?><span><i class="flaticon-next"></i></span>
                                     </a>
                                 </li>

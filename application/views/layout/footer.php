@@ -35,23 +35,13 @@ $categorylistsparent = $querymenu->result_array();
         </tr>
 
         <tr>
-            <th style="width: 25%;text-align: right;">
-                POPULAR BRANDS:
-            </th>
-            <td>
-
-                POPULAR BRANDS:
-                Fresho, bb Royal, Surf Excel, Amul, Nestle , Saffola, Britannia, Harpic, Lizol, Colgate, Dettol, Dabur, Tata I Shakti, Dhara , Fresho Meats, Parle, Real, Tropicana, Kissan, danone,
-            </td>
+            <td  colspan="2" style="text-align: center;font-weight: 400">
+             
+Fablas Impex Pvt. Ltd. is one of India's largest & most prominent FMCG companies, with a rich history of expertise in manufacturing & packaging. With a legacy of over four decades of providing winning solutions to Traditional as well as Modern Trade Markets, Fablas has been the supplier of choice for HORECA, B2B & Organised retail sectors for Bulk & Raw material supplies with 3rdparty label arrangements.            </td>
         </tr>
 
         <tr>
-            <th style="width: 25%;text-align: right;">
-                PAYMENT OPTIONS:
-            </th>
-            <td>
-                <img src="<?php echo base_url(); ?>assets/paymentstatus/payment.jpg" style="height: 75px;">
-            </td>
+           
         </tr>
     </table>
 
@@ -60,7 +50,7 @@ $categorylistsparent = $querymenu->result_array();
 
 <footer>
 
-    <div class="footer-area" style="background: #d92229">
+    <div class="footer-area" style="background: #102a83">
         <div class="footer-area-top">
             <div class="container">
                 <div class="row">
@@ -69,9 +59,9 @@ $categorylistsparent = $querymenu->result_array();
                             <h3>Information</h3>
                             <ul class="info-list">
                                 <li><a href="#">FAQ's</a></li>
-                                <li><a href="<?php echo site_url('about-us')?>">About Us</a></li>
-                                <li><a href="<?php echo site_url('contact')?>">Contact Us</a></li>
-                                <li><a href="<?php echo site_url('privacy-policy')?>">Privacy Policy</a></li>
+                                <li><a href="">About Us</a></li>
+                                <li><a href="">Contact Us</a></li>
+                                <li><a href="">Privacy Policy</a></li>
                                 <li><a href="#">Terms & Condition</a></li>
                             </ul>
                         </div>
@@ -143,11 +133,11 @@ $categorylistsparent = $querymenu->result_array();
         </div>
         <div style="clear: both"></div>
 
-        <div class="footer-area-bottom" style="background: #ffeb3b">
+        <div class="footer-area-bottom" style="background: #e30016;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <p>Copyright ©  <?php echo date('Y') ?>  by  Maharaja Mart Ltd. All rights reserved.  </p>
+                        <p style="color: #ffffff;">Copyright ©  <?php echo date('Y') ?>  by  fablas.com | All rights reserved.  </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     </div>

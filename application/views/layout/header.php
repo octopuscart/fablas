@@ -142,15 +142,15 @@
 
             <!-- Header Area Start Here -->
             <header>
-                <div class="header-top-inner-top" style="color: white;background: red;">
-                    <div class="container">
-                        <h2 style="margin: 0;">
-                            <marquee>
-                                Due to COVID-19 we are not accepting orders online at present. We will resume soon.
-                            </marquee>
-                        </h2>
-                    </div>
-                </div>
+                <!--                <div class="header-top-inner-top" style="color: white;background: red;">
+                                    <div class="container">
+                                        <h2 style="margin: 0;">
+                                            <marquee>
+                                                Due to COVID-19 we are not accepting orders online at present. We will resume soon.
+                                            </marquee>
+                                        </h2>
+                                    </div>
+                                </div>-->
                 <div class="header-area-style3" id="sticker">
                     <div class="header-top">
                         <div class="header-top-inner-top">
@@ -159,8 +159,8 @@
                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                         <div class="header-contact">
                                             <ul>
-                                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+(852) 2756 5611">+(852) 2756 5611</a></li>
-                                                <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> sales@maharajamart.com</a></li>
+                                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+91-11-25891350">+91-11-25891350</a></li>
+                                                <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> info@fablas.com</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -247,7 +247,9 @@
                                             foreach ($menucontainer as $key => $value) {
                                                 $children = $value['children'];
                                                 ?>
-                                                <li><a href="<?php echo site_url('Product/productList/1/' . $value['id']); ?>">
+                                                <li>
+                                                    <!--<a href="<?php echo site_url('Product/productList/1/' . $value['id']); ?>">-->
+                                                    <a href="<?php echo site_url('Product/productList/1/0'); ?>">
                                                         <?php echo $value['category_name']; ?>
                                                         <?php if ($children) { ?>
                                                             <span><i class="flaticon-next"></i></span>
@@ -256,7 +258,12 @@
                                                             <?php
                                                             foreach ($children as $ckey => $cvalue) {
                                                                 ?>
-                                                                <li><a href="<?php echo site_url('Product/productList/1/' . $cvalue['id']); ?>"><?php echo $cvalue['category_name']; ?></a></li>
+                                                                <li>
+                                                                    <a href="<?php echo site_url('Product/productList/1/0'); ?>">
+                                                                        <!--<a href="<?php echo site_url('Product/productList/1/' . $cvalue['id']); ?>">-->
+                                                                        <?php echo $cvalue['category_name']; ?>
+                                                                    </a>
+                                                                </li>
                                                                 <?php
                                                             }
                                                             ?>
@@ -278,9 +285,11 @@
                                     <div class="main-menu-area hideonstickheader">
                                         <nav>
                                             <ul>
-                                                <li class="active"><a href="#">Offers</a></li>
-                                                <li><a href="http://maharajatickets.com/" target="_blank">Movie Tickets</a></li>
-                                                <li><a href="https://www.woodlandshk.com/"  target="_blank">Woodlands Indian Vegetarian Restaurant</a></li>
+                                                <li class="active"><a href="#">Home</a></li>
+                                                <li class="active"><a href="#">About Us</a></li>
+                                                <li class="active"><a href="#">Services</a></li>
+                                                <li class="active"><a href="#">Career</a></li>
+                                                <li class="active"><a href="#">Contact U</a></li>
 
                                             </ul>
                                         </nav>
@@ -327,34 +336,41 @@
                                         <div class="mobile-menu">
                                             <nav id="dropdown">
                                                 <ul>
-                                                     <?php
-                                            foreach ($menucontainer as $key => $value) {
-                                                $children = $value['children'];
-                                                ?>
-                                                <li><a href="<?php echo site_url('Product/productList/1/' . $value['id']); ?>">
-                                                        <?php echo $value['category_name']; ?>
-                                                        <?php if ($children) { ?>
-                                                            
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <?php
-                                                            foreach ($children as $ckey => $cvalue) {
-                                                                ?>
-                                                                <li><a href="<?php echo site_url('Product/productList/1/' . $cvalue['id']); ?>"><?php echo $cvalue['category_name']; ?></a></li>
+                                                    <?php
+                                                    foreach ($menucontainer as $key => $value) {
+                                                        $children = $value['children'];
+                                                        ?>
+                                                        <li>
+                                                            <!--<a href="<?php echo site_url('Product/productList/1/' . $value['id']); ?>">-->
+                                                            <a href="<?php echo site_url('Product/productList/1/0'); ?>">
+                                                                <?php echo $value['category_name']; ?>
+                                                                <?php if ($children) { ?>
+
+                                                                </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <?php
+                                                                    foreach ($children as $ckey => $cvalue) {
+                                                                        ?>
+                                                                        <li>
+                                                                            <!--<a href="<?php echo site_url('Product/productList/1/' . $cvalue['id']); ?>">-->
+                                                                            <a href="<?php echo site_url('Product/productList/1/0'); ?>">
+                                                                                <?php echo $cvalue['category_name']; ?>
+                                                                            </a>
+                                                                        </li>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                </ul>
                                                                 <?php
+                                                            } else {
+                                                                ?>
+                                                                </a><?php
                                                             }
                                                             ?>
-                                                        </ul>
+                                                        </li>
                                                         <?php
-                                                    } else {
-                                                        ?>
-                                                        </a><?php
                                                     }
                                                     ?>
-                                                </li>
-                                                <?php
-                                            }
-                                            ?>
                                                 </ul>
                                             </nav>
                                         </div>
@@ -381,22 +397,3 @@
             </style>
 
 
-            <script type="text/javascript">
-                (function () {
-                    var options = {
-                        whatsapp: "85262915892", // WhatsApp number
-                        call_to_action: "Contact Us", // Call to action
-                        position: "right", // Position may be 'right' or 'left'
-                    };
-                    var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
-                    var s = document.createElement('script');
-                    s.type = 'text/javascript';
-                    s.async = true;
-                    s.src = url + '/widget-send-button/js/init.js';
-                    s.onload = function () {
-                        WhWidgetSendButton.init(host, proto, options);
-                    };
-                    var x = document.getElementsByTagName('script')[0];
-                    x.parentNode.insertBefore(s, x);
-                })();
-            </script>
