@@ -13,11 +13,13 @@ $image2 = "";
 <style>
     .shaadimembersummary {
 
-        border: 1px solid #0ff;
-        margin-bottom: 10px;
-
+        /*border: 1px solid #0ff;*/
+        margin-bottom: 20px;
+border-radius: 20px;
         float: left;
         width: 100%;
+       
+        box-shadow: 0px 0px 29px -15px #000;
     }
 
     .page_navigation a {
@@ -35,12 +37,16 @@ $image2 = "";
         color: black;
     }
 
-    .shaadimembersummary img{
-        height: 227px!important;
+    .shaadimembersummary img {
+        height: 241px!important;
         display: inline-block;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
     }
     .memberprofileblock{
         font-size: 13px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
     }
     .memberprofileblock p{
         margin-bottom: 0px;
@@ -91,24 +97,10 @@ $image2 = "";
     <div class="container" id="paging_container1">
 
         <div class="row"  >
-            <div class="col-lg-3 col-md-3">
-                
-                <div class="sidebar hidden-after-desk" ng-repeat="(key, filter) in profileResults.filters">
-                    <h2 class="title-sidebar">{{filter.title}}</h2>
-                    <div class="category-menu-area sidebar-section-margin">
-                        <ul>
-                            <li ng-repeat="attr in filter.data">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="key[]" value="{{attr.id}}"> {{attr.title}} <span>({{attr.count}})</span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
 
-            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-md-push-3">
 
 
                 <div id="content1"  ng-if="profileProcess.state == 1" style="padding: 100px 0px;"> 
@@ -116,9 +108,7 @@ $image2 = "";
                     <!-- Tesm Text -->
                     <section class="error-page text-center pad-t-b-130">
                         <div class="container1"> 
-                            <center>
-                                <img src="<?php echo base_url() . 'assets/theme2/img/loader.gif' ?>">
-                            </center>
+
                             <!-- Heading -->
                             <h1 style="font-size: 40px;text-align: center">Loading...</h1>
                         </div>
@@ -195,7 +185,7 @@ $image2 = "";
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 pinkgradiant border-right-20">
                                         <div class="profile-last_block">
                                             <h4>Like this profile?</h4>
                                             <button class="btn btn-link btn-lg">
@@ -205,6 +195,8 @@ $image2 = "";
                                                 </span> 
                                             </button>
                                             <p>Connect Now</p>
+                                            <a href="<?php echo site_url("Profile/profileDetails/") ?>{{member.member_id}}" class="btn btn-success">View Profile</a>
+
                                         </div>
                                     </div>
 
@@ -221,7 +213,7 @@ $image2 = "";
                             </div>
                             <div class="row products-container  content"  style="display: none;">
                                 <!-- Item -->
-                                <div class="col-sm-4 animated zoomIn member_counter"  ng-repeat="(k, product) in profileResults.member_counter">
+                                <div class="col-sm-4 animated zoomIn member_counter"  ng-repeat="(k, product) in filters.member_counter">
                                 </div>
                             </div>
                             <center>
@@ -234,6 +226,24 @@ $image2 = "";
                 </div>
 
             </div>
+
+            <div class="col-lg-3 col-md-3 col-md-pull-9">
+
+                <div class="sidebar " ng-repeat="(key, filter) in filters.filters">
+                    <h2 class="title-sidebar">{{filter.title}}</h2>
+                    <div class="category-menu-area sidebar-section-margin">
+                        <ul>
+                            <li ng-repeat="attr in filter.data">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="key[]" value="{{attr.id}}"> {{attr.title}} <span>({{attr.count}})</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
 
         </div>
 

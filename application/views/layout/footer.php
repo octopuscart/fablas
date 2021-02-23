@@ -1,52 +1,6 @@
 <!-- Footer Area Start Here -->
 <div style="clear: both"></div>
-<?php
-$querymenu = $this->db->get('category');
-$categorylists = $querymenu->result_array();
-$categorylisttemp = [];
 
-
-$this->db->select("seo_keywords");
-$queryconf = $this->db->get('configuration_site');
-$seokeywords = $queryconf->row();
-$keywordschat = $seokeywords->seo_keywords;
-
-$keywordslist = explode(", ", $keywordschat);
-
-$this->db->where("parent_id", "0");
-$querymenu = $this->db->get('category');
-$categorylistsparent = $querymenu->result_array();
-?>
-<div class="container">
-    <hr style="border: 1px solid #d92229;"/>
-
-    <table class="footertable">
-        <tr>
-            <th style="width: 25%;text-align: right;">
-                POPULAR CATEGORIES:
-            </th>
-            <td>
-                <?php
-                foreach ($categorylists as $key => $value) {
-                    echo $value['category_name'] . ($key == (count($categorylists) - 1) ? '' : ', ');
-                }
-                ?>
-            </td>
-        </tr>
-
-        <tr>
-            <td  colspan="2" style="text-align: center;font-weight: 400">
-             
-Fablas Impex Pvt. Ltd. is one of India's largest & most prominent FMCG companies, with a rich history of expertise in manufacturing & packaging. With a legacy of over four decades of providing winning solutions to Traditional as well as Modern Trade Markets, Fablas has been the supplier of choice for HORECA, B2B & Organised retail sectors for Bulk & Raw material supplies with 3rdparty label arrangements.            </td>
-        </tr>
-
-        <tr>
-           
-        </tr>
-    </table>
-
-
-</div>
 
 <footer>
 
@@ -70,25 +24,20 @@ Fablas Impex Pvt. Ltd. is one of India's largest & most prominent FMCG companies
                         <div class="footer-box">
                             <h3>My Account</h3>
                             <ul class="info-list">
-                                 <li><a href="">Login</a></li>
+                                <li><a href="">Login</a></li>
                                 <li><a href="">My Account</a></li>
-                                <li><a href="">Order History</a></li>
-                                <li><a href="">View Cart</a></li>
+                                <li><a href="">Match History</a></li>
+                                <li><a href="">View Saved Contacts</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="footer-box">
-                            <h3>Order Now</h3>
+                            <h3>Buy Now</h3>
                             <ul class="info-list">
-                                <?php
-                                foreach ($categorylistsparent as $key => $value) {
-                                    ?>
-                                 <li><a href=""><?php echo $value['category_name'];?></a></li>
-                                <?php
-                                  
-                                }
-                                ?>    
+                                <li><a href="">Golden Package</a></li>
+                                <li><a href="">Silver Package</a></li>
+                                <li><a href="">Bronze Package</a></li>
                             </ul>
                         </div>
                     </div>
@@ -126,18 +75,18 @@ Fablas Impex Pvt. Ltd. is one of India's largest & most prominent FMCG companies
             <div class="col-md-12 row " style="text-align: center;">
                 <hr/>
 
-                <span class="keywordfooter"><?php echo$keywordschat; ?> </span>
+                <span class="keywordfooter"> </span>
 
                 <hr/>
             </div>
         </div>
         <div style="clear: both"></div>
 
-        <div class="footer-area-bottom" style="background: #e30016;">
+        <div class="footer-area-bottom pinkgradiant" >
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <p style="color: #ffffff;">Copyright ©  <?php echo date('Y') ?>  by  fablas.com | All rights reserved.  </p>
+                        <p style="color: #ffffff;">Copyright ©  <?php echo date('Y') ?>  by  shadimychoice.com | All rights reserved.  </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     </div>
@@ -216,7 +165,7 @@ Fablas Impex Pvt. Ltd. is one of India's largest & most prominent FMCG companies
 
     });
 
-    $('nav#dropdown').meanmenu({siteLogo: "<a href='/' class='logo-mobile-menu'><img src='<?php echo base_url() . 'assets/images/logo73.png'; ?>' style='    height: 35px;' /></a>"});
+    $('nav#dropdown').meanmenu({siteLogo: "<a href='/' class='logo-mobile-menu'><img src='<?php echo site_mail_logo; ?>' style='    height: 35px;' /></a>"});
 </script>
 
 

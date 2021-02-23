@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 require(APPPATH . 'libraries/REST_Controller.php');
-
+ 
 class Api extends REST_Controller {
 
     public function __construct() {
@@ -20,118 +20,7 @@ class Api extends REST_Controller {
         $this->load->view('welcome_message');
     }
 
-    //function for product list
-    function cartOperation_post() {
-        $product_id = $this->post('product_id');
-        $quantity = $this->post('quantity');
 
-        if ($this->checklogin) {
-            $session_cart = $this->Product_model->cartOperation($product_id, $quantity, $this->user_id);
-            $session_cart = $this->Product_model->cartData($this->user_id);
-        } else {
-            $session_cart = $this->Product_model->cartOperation($product_id, $quantity);
-            $session_cart = $this->Product_model->cartData();
-        }
-
-
-
-        $this->response($session_cart['products'][$product_id]);
-    }
-
-    function cartOperation_get() {
-        if ($this->checklogin) {
-            $session_cart = $this->Product_model->cartData($this->user_id);
-        } else {
-            $session_cart = $this->Product_model->cartData();
-        }
-
-        $session_cart['shipping_price'] = 30;
-        if ($session_cart['total_price'] > 299) {
-            $session_cart['shipping_price'] = 0;
-        }
-        if ($this->checklogin) {
-            $user_address_details2 = $this->User_model->user_address_details($this->user_id);
-            if ($user_address_details2) {
-                $user_address_details = $user_address_details2[0];
-            } else {
-                $user_address_details = "";
-            }
-        } else {
-            $user_address_details = $this->session->userdata('shipping_address');
-        }
-        if ($user_address_details) {
-            if ($user_address_details['zipcode'] == 'on') {
-                $session_cart['shipping_price'] = 0;
-            }
-        }
-
-        $session_cart['sub_total_price'] = $session_cart['total_price'];
-
-        $session_cart['total_price'] = $session_cart['total_price'] + $session_cart['shipping_price'];
-
-
-
-        $this->response($session_cart);
-    }
-
-    function cartOperationDelete_get($product_id) {
-        if ($this->checklogin) {
-            $cartdata = $this->Product_model->cartData($this->user_id);
-            $cid = $cartdata['products'][$product_id]['id'];
-            $this->db->where('id', $cid); //set column_name and value in which row need to update
-            $this->db->delete('cart'); //
-        } else {
-            $session_cart = $this->session->userdata('session_cart');
-            unset($session_cart['products'][$product_id]);
-            $this->session->set_userdata('session_cart', $session_cart);
-        }
-    }
-
-    function cartOperationPut_get($product_id, $quantity) {
-        if ($this->checklogin) {
-            $cartdata = $this->Product_model->cartData($this->user_id);
-            $total_price = $cartdata['products'][$product_id]['price'] * $quantity;
-            $total_quantity = $quantity;
-            $cid = $cartdata['products'][$product_id]['id'];
-            $this->db->set('quantity', $total_quantity);
-            $this->db->set('total_price', $total_price);
-            $this->db->where('id', $cid); //set column_name and value in which row need to update
-            $this->db->update('cart'); //
-        } else {
-            $session_cart = $this->session->userdata('session_cart');
-            $session_cart['products'][$product_id]['quantity'] = $quantity;
-            $price = $session_cart['products'][$product_id]['price'];
-            $session_cart['products'][$product_id]['total_price'] = $quantity * $price;
-            $this->session->set_userdata('session_cart', $session_cart);
-        }
-    }
-
-    //Product 
-    public function SearchSuggestApi_get() {
-        $query = $this->get("query");
-//        $query = $this->db->select('title, id, file_name, price')->from('products')->where("title LIKE '%$keyword%' ")->get();
-//        $searchobj = $query->result_array();
-
-        $pquery = "SELECT title, file_name, id, price from products where title like '%$query%'";
-        $attr_products = $this->Product_model->query_exe($pquery);
-
-
-        $this->response($attr_products);
-    }
-
-    public function prefetchdata_get() {
-        $pquery = "SELECT title, file_name, id, price from products limit 0, 50";
-        $attr_products = $this->Product_model->query_exe($pquery);
-        $this->response($attr_products);
-    }
-
-    public function SearchSuggestApiJUI_get() {
-        $getdata = $this->get();
-        $keyword = $getdata['term'];
-        $query = $this->db->select('title, id')->from('products')->where("keywords LIKE '%$keyword%'")->get();
-        $searchobj = $query->result_array();
-        $this->response($searchobj);
-    }
 
     //ProductList APi
     public function productListApi_get($category_id) {
@@ -145,41 +34,26 @@ class Api extends REST_Controller {
             $searchdata = $attrdatak["search"];
             unset($attrdatak["search"]);
             if ($searchdata) {
-                $psearch = " and title like '%$searchdata%' ";
+                $psearch = " and name like '%$searchdata%' ";
             }
         }
         
         
         
-        if (isset($attrdatak["minprice"])) {
-            $priecemn = $attrdatak["minprice"];
-            $priecemx = $attrdatak["maxprice"];
-            $pricequery = " and price > $priecemn and price < $priecemx ";
-        }
-
+       
         $startpage = $attrdatak["start"] - 1;
         $endpage = $attrdatak["end"];
         unset($attrdatak["start"]);
         unset($attrdatak["end"]);
         $mnpricr = 0;
 
-        $categoriesString = $this->Product_model->stringCategories($category_id) . ", " . $category_id;
-        $categoriesString = ltrim($categoriesString, ", ");
 
-        $product_query = "select pt.id as product_id, pt.*
-            from products as pt where pt.category_id in ($categoriesString) and variant_product_of = '' $pricequery  order by id ";
+
+        $product_query = "select * 
+            from shadi_profile as pt where  1 order by id ";
         $product_result = $this->Product_model->query_exe($product_query);
 
 
-        $productprices = array();
-        foreach ($product_result as $key => $value) {
-            $productprices[$value['price']] = $value['price'];
-        }
-        sort($productprices);
-        $pricerange = array("maxprice" => 0, "minprice" => 0);
-        if ($productprices) {
-            $pricerange = array("maxprice" => $productprices[count($productprices) - 1], "minprice" => $productprices[0]);
-        }
 
         $productListSt = [];
 
@@ -191,19 +65,7 @@ class Api extends REST_Controller {
 
         foreach ($productListFinal1 as $key => $value) {
 
-            $variantproduct = $this->Product_model->getProductVeriants($value['product_id']);
-
-            if ($variantproduct) {
-                $value['hasvarient'] = '1';
-                $value['varients'] = $variantproduct;
-                $value['selectedobject'] = $value['product_id'];
-                $value['selectedvarient'] = $variantproduct[$value['product_id']];
-            } else {
-                $value['hasvarient'] = '0';
-                $value['verients'] = [];
-                $value['selectedvarient'] = array();
-            }
-
+        
             array_push($productListFinal, $value);
         }
 
@@ -217,11 +79,13 @@ class Api extends REST_Controller {
             'products' => $productListFinal,
             'product_count' => count($product_result),
             'offers' => array(),
-            "pricerange" => $pricerange,
-            'price' => $pricerange);
+            );
+        
         $this->response($productArray);
     }
 
+    
+    
     public function productListOffersApi_get() {
         $this->output->set_header('Content-type: application/json');
         $this->db->where('offer', 1);

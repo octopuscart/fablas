@@ -72,12 +72,12 @@ $this->load->view('layout/header');
                     <form action="#" method="post">
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Last Name *</label>
-                                <input type="text" name="last_name" placeholder="Last Name *" required="">
+                                <label>Name *</label>
+                                <input type="text" name="name" placeholder="Full Name *" required="">
                             </div>
                             <div class="col-md-6">
-                                <label>First Name *</label>
-                                <input type="text" name="first_name" placeholder="First Name *" required="">
+                                <label>Contact No. *</label>
+                                <input type="tel" name="contact_no" placeholder="Contact No *" required="" min='10' max="10">
                             </div>
                         </div>
                         <label>Email address *</label>
@@ -107,32 +107,7 @@ $this->load->view('layout/header');
 
 
                             </div>
-                            <div class="col-md-6">
-                                <input type="hidden" name="birth_date" id="birth_date" value="{{birth_month}}-{{date_birth}}"> 
-                                <label>Date Of Birth *</label>
-                            
-
-                                <select id="birth_month" ng-model="birth_month" name="birth_month" class="r_corners bg_light w_full border_none bith_date_select" required >
-                                    <option value="" >-MM-</option>
-                                     <?php
-                                    for ($i = 1; $i <= 12; $i++) {
-                                        $mmdate = $i<10?"0".$i:$i;
-                                        echo "<option value='$mmdate'>$mmdate</option>";
-                                    }
-                                    ?>
-                                </select> 
-
-                                <select id="birth_date" name="date_birth" ng-model="date_birth" class="r_corners bg_light w_full border_none bith_date_select"  required >
-                                    <option value="" >-DD-</option>
-                                     <?php
-                                    for ($i = 1; $i <= 31; $i++) {
-                                         $dddate = $i<10?"0".$i:$i;
-                                        echo "<option value='$dddate'>$dddate</option>";
-                                    }
-                                    ?>
-                                </select>
-
-                            </div>
+                           
                         </div>
                         <div style="clear: both"></div>
 
@@ -143,7 +118,7 @@ $this->load->view('layout/header');
                         <br/>
 
 
-                        <button name = "registration" class="btn-send-message disabled" type="button" value="Login">Register</button>
+                        <button name = "registration" class="btn-send-message disabled" type="submit" value="Login">Register</button>
                     </form>
                 </div>
             </div>

@@ -25,9 +25,7 @@ class Account extends CI_Controller {
     //Profile page
     public function profile() {
 
-        $query = $this->db->get('country');
-        $countrylist = $query->result();
-        $data1['countrylist'] = $countrylist;
+
 
         if ($this->user_id == 0) {
             redirect('Account/login');
@@ -46,7 +44,7 @@ class Account extends CI_Controller {
                     $password = md5($re_password);
                     $this->db->set('password', $password);
                     $this->db->where('id', $this->user_id);
-                    $this->db->update('admin_users');
+                    $this->db->update('member_users');
                     redirect('Account/profile');
                 } else {
                     $data['msg'] = "Password didn't match.";
@@ -65,7 +63,7 @@ class Account extends CI_Controller {
             $this->db->set('birth_date', $this->input->post('birth_date'));
 
             $this->db->where('id', $this->user_id);
-            $this->db->update('admin_users');
+            $this->db->update('member_users');
 
             $session_user = $this->session->userdata('logged_in');
             $session_user['first_name'] = $this->input->post('first_name');
@@ -82,9 +80,7 @@ class Account extends CI_Controller {
     function login() {
         $data1['msg'] = "";
 
-        $query = $this->db->get('country');
-        $countrylist = $query->result();
-        $data1['countrylist'] = $countrylist;
+
 
         $link = isset($_GET['page']) ? $_GET['page'] : '';
         $data1['next_link'] = $link;
@@ -94,7 +90,7 @@ class Account extends CI_Controller {
             $password = $this->input->post('password');
 
             $this->db->select('au.id,au.first_name,au.last_name,au.email,au.password,au.user_type, au.image');
-            $this->db->from('admin_users au');
+            $this->db->from('member_users au');
             $this->db->where('email', $username);
             $this->db->where('password', md5($password));
             $this->db->limit(1);
@@ -136,8 +132,8 @@ class Account extends CI_Controller {
 
             $email = $this->input->post('email');
             $password = $this->input->post('password');
-            $first_name = $this->input->post('first_name');
-            $last_name = $this->input->post('last_name');
+            $name = $this->input->post('name');
+            $contact_no = $this->input->post('contact_no');
             $cpassword = $this->input->post('con_password');
 
             $birth_date = $this->input->post('birth_date');
@@ -151,18 +147,16 @@ class Account extends CI_Controller {
                     $data1['msg'] = 'Email Address Already Registered.';
                 } else {
                     $userarray = array(
-                        'first_name' => $first_name,
-                        'last_name' => $last_name,
+                        'name' => $name,
+                        'contact_no' => $contact_no,
                         'email' => $email,
                         'password' => md5($password),
                         'password2' => $password,
-                        'profession' => "",
-                        'country' => "",
                         'gender' => $gender,
-                        'birth_date' => $birth_date,
+                        "status" => "Active",
                         'registration_datetime' => date("Y-m-d h:i:s A")
                     );
-                    $this->db->insert('admin_users', $userarray);
+                    $this->db->insert('member_users', $userarray);
                     $user_id = $this->db->insert_id();
 
                     $sess_data = array(
@@ -261,7 +255,7 @@ class Account extends CI_Controller {
             $this->db->where('user_id', $this->user_id);
             $this->db->update('shipping_address');
 
-             $this->db->set('status', "");
+            $this->db->set('status', "");
             $this->db->where('user_id', $this->user_id);
             $this->db->update('shipping_address');
 

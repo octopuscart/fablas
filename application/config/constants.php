@@ -21,13 +21,13 @@ switch ($baselink) {
 
 switch ($baselink) {
     case "http://localhost":
-        $adminlinkmain = $baselink . "/shopadmin";
+        $adminlinkmain = $baselink . "/shadimychoice/";
         break;
     case "http://192.168.1.2":
-          $adminlinkmain = $baselink . "/shopadmin";
+          $adminlinkmain = $baselink . "/shadimychoice/";
         break;
     default:
-        $adminlinkmain = "https://admin.maharajamart.com/";
+        $adminlinkmain = "https://admin.shadimychoice.com/";
 }
 
 define('ADMINURL', $adminlinkmain);
@@ -35,7 +35,7 @@ define('ADMINURL', $adminlinkmain);
 define('PRODUCTIMAGELINK', $baselinkmain."/assets/products/");
 
 
-define('imageserver', $baselinkmain . "assets_main/productimages/");
+define('imageserver', "https://admin.shadimychoice.com/assets/profile_image/");
 define('imageserverslider', $baselinkmain . "assets_main/sliderimages/");
 define('imageservermain', $baselinkmain . "assets_main/");
 define('globle_currency_type',  $configuration['currency']);
