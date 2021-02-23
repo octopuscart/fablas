@@ -147,7 +147,7 @@
                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                         <div class="header-contact">
                                             <ul>
-                                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+91-11-25891350">+91-11-25891350</a></li>
+                                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+91-9770675143">+91-9770675143</a></li>
                                                 <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> info@shadimychoice.com</a></li>
                                             </ul>
                                         </div>
