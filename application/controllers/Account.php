@@ -77,6 +77,7 @@ class Account extends CI_Controller {
     function login() {
         $data1['msg'] = "";
 
+        $this->session->unset_userdata("tempmobieno");
 
 
         if (isset($_POST['signIn'])) {
