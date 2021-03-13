@@ -179,6 +179,7 @@ class User_model extends CI_Model
                 $response = curl_exec($ch);
                 curl_close($ch);
                 $strvrfy = $response;
+                print_r($strvrfy);
                 $checkstring = strpos($strvrfy, "SHOOT-ID");
                 if ($checkstring != false) {
                     $returndata["message"] = "OTP sent to your mobile no.";

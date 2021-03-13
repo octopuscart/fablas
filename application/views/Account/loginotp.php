@@ -17,7 +17,7 @@ $this->load->view('layout/header');
                         <h2 class="cart-area-title">Login</h2>
 
                         <label>Your Mobile No. *</label>
-                        <input type="tel" name="contact_no" placeholder="Contact No. "  readonly="" value="<?php echo $mobile_no;?>" required=""/>
+                        <input type="tel" name="contact_no" placeholder="Contact No. "  readonly="" value="<?php echo $mobile_no; ?>" required=""/>
 
 
                         <h4 class="font-30 text-danger">
@@ -29,7 +29,7 @@ $this->load->view('layout/header');
                         <div class="" style="display: inline-block" >
                             <form action="#" method="post">
                                 <div class="input-group input-group-lg" >
-                                    <input type="hidden"  name="contact_no" value="<?php echo $mobile_no;?>" required=""/>
+                                    <input type="hidden"  name="contact_no" value="<?php echo $mobile_no; ?>" required=""/>
                                     <input type="text" class="form-control varifyinputbox" placeholder="Enter OTP" name="otp" style="    width: 130px;">
                                     <span class="input-group-btn">
                                         <button class="btn-send-message" type="submit" name="signIn"> Verify Now</button>
@@ -37,7 +37,7 @@ $this->load->view('layout/header');
                                 </div><!-- /input-group -->
                             </form>
                         </div>
-                        <span style="text-align: center;    float: left;"><?php echo $msg;?></span>
+                        <span style="text-align: center;    float: left;"><?php echo $msg; ?></span>
 
 
                     </div>
@@ -73,6 +73,9 @@ $this->load->view('layout/header');
                                     </span>
                                 </div><!-- /input-group -->
                             </form>
+                        </div>
+                        <div class="" style="display: inline-block" ng-if="varifyaccountdata.status == 3">
+                            <a class="btn btn-send-message">Go Back</a>
                         </div>
 
                     </div>

@@ -25,6 +25,10 @@ App.controller('varifyAccount', function($scope, $http, $timeout, $interval) {
                 if (returndata["usercheck"] == "1") {
                     $scope.varifyaccountdata.status = 2;
                 }
+                
+                 if (returndata["status"] == "2") {
+                    $scope.varifyaccountdata.status = 3;
+                }
             }, 2000);
         })
 
