@@ -23,7 +23,7 @@ switch ($baselink) {
     case "http://localhost":
         $adminlinkmain = $baselink . "/shadimychoice/";
         break;
-    case "http://192.168.1.2":
+    case "http://192.168.1.3":
           $adminlinkmain = $baselink . "/shadimychoice/";
         break;
     default:
@@ -35,7 +35,7 @@ define('ADMINURL', $adminlinkmain);
 define('PRODUCTIMAGELINK', $baselinkmain."/assets/products/");
 
 
-define('imageserver', "https://admin.shadimychoice.com/assets/profile_image/");
+define('imageserver', "$adminlinkmain/assets/profile_image/");
 define('imageserverslider', $baselinkmain . "assets_main/sliderimages/");
 define('imageservermain', $baselinkmain . "assets_main/");
 define('globle_currency_type',  $configuration['currency']);

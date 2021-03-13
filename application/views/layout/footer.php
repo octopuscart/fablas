@@ -4,7 +4,7 @@
 
 <footer>
 
-    <div class="footer-area" style="background: #102a83">
+    <div class="footer-area" >
         <div class="footer-area-top">
             <div class="container">
                 <div class="row">

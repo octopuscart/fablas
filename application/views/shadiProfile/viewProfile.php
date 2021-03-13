@@ -29,12 +29,8 @@ $this->load->view('layout/header');
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="breadcrumb-area">
-                    <h1 class="page-header">Member Profile #<?php echo $profile_id; ?> <small></small></h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>Blog /</li>
-                        <li>Details</li>
-                    </ul>
+                    <h1 style="font-size: 15px;">Member Profile #<?php echo $profile_id; ?> <small></small></h1>
+                
                 </div>
             </div>
         </div>
@@ -42,17 +38,15 @@ $this->load->view('layout/header');
 </div>
 <!-- Inner Page Banner Area End Here -->
 <!-- Single Blog Page Area Start Here -->
-<div class="single-blog-page-area">
-    <div class="container">
+<div class="single-blog-page-area" style="margin: 0;    padding-top: 20px;">
+    <div class="container-fluid">
         <div class="row">
             <section class="" ng-controller="viewShadiProfileController">
 
                 <!-- begin #content -->
                 <div id="content" class="content">
                     <!-- begin breadcrumb -->
-                    <ol class="breadcrumb pull-right">
 
-                    </ol>
                     <!-- end breadcrumb -->
                     <!-- begin page-header -->
                 
@@ -66,6 +60,9 @@ $this->load->view('layout/header');
                                 <div class="col-md-3">
                                     <?php
                                     $this->load->view('shadiProfile/sidebarprofile');
+                                    ?>
+                                    <?php
+                                    $this->load->view('shadiProfile/sidebar');
                                     ?>
                                 </div>
                                 <div class="col-md-6 profilemiddlesection">

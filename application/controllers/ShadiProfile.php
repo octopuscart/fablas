@@ -17,6 +17,65 @@ class ShadiProfile extends CI_Controller {
         $this->userdata = $this->session->userdata('logged_in');
     }
 
+    public function addBaseProfile() {
+
+        $data = array("last_aid" => 1);
+        $data['manager_id'] = $this->userdata['login_id'];
+
+        //community
+        $community_category = $this->Curd_model->get("set_community_category");
+        $data['community_category'] = $community_category;
+
+        //mother tounge
+        $set_mother_tongue = $this->Curd_model->get("set_mother_tongue");
+        $data['set_mother_tongue'] = $set_mother_tongue;
+
+        //qualification
+        $set_qualification_category = $this->Curd_model->get("set_qualification_category");
+        $set_qualification_dict = array();
+        foreach ($set_qualification_category as $key => $value) {
+            $set_qualification_dict[$value['title']] = $this->Curd_model->getByForeignKey("set_qualification", "category_id", $value['id']);
+        }
+        $data['set_qualification_dict'] = $set_qualification_dict;
+
+        //profession
+        $set_profession_sector = $this->Curd_model->get("set_profession_sector");
+        $data['set_profession_sector'] = $set_profession_sector;
+        $set_profession_category = $this->Curd_model->get("set_profession_category");
+        $set_profession_dict = array();
+        foreach ($set_profession_category as $key => $value) {
+            $set_profession_dict[$value['title']] = $this->Curd_model->getByForeignKey("set_profession", "category_id", $value['id']);
+        }
+        $data['set_profession_dict'] = $set_profession_dict;
+
+        //income
+        $set_annual_income = $this->Curd_model->get("set_annual_income");
+        $data['set_annual_income'] = $set_annual_income;
+
+        //city state
+        $set_state = $this->Curd_model->get("set_states");
+        $data['set_state'] = $set_state;
+
+        if (isset($_POST['addmemeber'])) {
+            $shadidata = $this->input->post();
+            unset($shadidata['addmemeber']);
+            $shadidata['status'] = "Active";
+            $shadidata['manager_id'] = "10";
+            print_r($shadidata);
+            $this->db->insert("shadi_profile", $shadidata);
+             $last_id = $this->db->insert_id();
+            $profile_id = "SMC" . date("Ymd") . $last_id;
+            $this->db->where("id", $last_id);
+            $this->db->set("member_id", $profile_id);
+            $this->db->update("shadi_profile");
+            redirect("ShadiProfile/viewProfile/" . $profile_id);
+        }
+
+
+
+        $this->load->view('shadiProfile/createBaseProfile', $data);
+    }
+
     public function addProfile() {
 
         $data = array("last_aid" => 1);

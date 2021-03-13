@@ -1,13 +1,15 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 require(APPPATH . 'libraries/REST_Controller.php');
- 
-class Api extends REST_Controller {
 
-    public function __construct() {
+class Api extends REST_Controller
+{
+
+    public function __construct()
+    {
         parent::__construct();
-        $this->load->model('Product_model');
+
         $this->load->model('User_model');
 
         $this->load->model('Movie');
@@ -16,14 +18,14 @@ class Api extends REST_Controller {
         $this->user_id = $this->session->userdata('logged_in')['login_id'];
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->view('welcome_message');
     }
 
-
-
     //ProductList APi
-    public function productListApi_get($category_id) {
+    public function productListApi_get($category_id)
+    {
         $attrdatak = $this->get();
         $products = [];
         $countpr = 0;
@@ -37,10 +39,10 @@ class Api extends REST_Controller {
                 $psearch = " and name like '%$searchdata%' ";
             }
         }
-        
-        
-        
-       
+
+
+
+
         $startpage = $attrdatak["start"] - 1;
         $endpage = $attrdatak["end"];
         unset($attrdatak["start"]);
@@ -65,7 +67,7 @@ class Api extends REST_Controller {
 
         foreach ($productListFinal1 as $key => $value) {
 
-        
+
             array_push($productListFinal, $value);
         }
 
@@ -74,19 +76,19 @@ class Api extends REST_Controller {
 
         $this->output->set_header('Content-type: application/json');
 
-//        echo count($productListFinal1);
-        $productArray = array('attributes' => $attr_filter,
+        //        echo count($productListFinal1);
+        $productArray = array(
+            'attributes' => $attr_filter,
             'products' => $productListFinal,
             'product_count' => count($product_result),
             'offers' => array(),
-            );
-        
+        );
+
         $this->response($productArray);
     }
 
-    
-    
-    public function productListOffersApi_get() {
+    public function productListOffersApi_get()
+    {
         $this->output->set_header('Content-type: application/json');
         $this->db->where('offer', 1);
         $this->db->where('sale_price!=', "");
@@ -98,7 +100,8 @@ class Api extends REST_Controller {
     }
 
     //ProductList APi
-    public function productListSearchApi_get($searchkey) {
+    public function productListSearchApi_get($searchkey)
+    {
         $attrdatak = $this->get();
         $products = [];
         $countpr = 0;
@@ -160,7 +163,7 @@ class Api extends REST_Controller {
         ) as pt where pt.id > 0 
 
                 "
-                . " $pricequery $proquery";
+            . " $pricequery $proquery";
         $product_result = $this->Product_model->query_exe($product_query);
 
         $productListSt = [];
@@ -204,30 +207,36 @@ class Api extends REST_Controller {
         }
         ob_clean();
         $this->output->set_header('Content-type: application/json');
-        $productArray = array('attributes' => $attr_filter,
+        $productArray = array(
+            'attributes' => $attr_filter,
             'products' => $productListFinal,
             'product_count' => count($product_result),
-            'price' => $pricelist);
+            'price' => $pricelist
+        );
         $this->response($productArray);
     }
 
     //category list api
-    function categoryMenu_get() {
+    function categoryMenu_get()
+    {
         $categories = $this->Product_model->productListCategories(0);
         $this->response($categories);
     }
 
     //order detail get
-    function orderDetails_get($order_id) {
+    function orderDetails_get($order_id)
+    {
         $order_details = $this->Product_model->getOrderDetails($order_id);
         $this->response($order_details);
     }
 
-    function order_mail_get($order_id) {
+    function order_mail_get($order_id)
+    {
         $this->Product_model->order_mail($order_id);
     }
 
-    function order_mailcheck_get($order_id, $order_no) {
+    function order_mailcheck_get($order_id, $order_no)
+    {
         $this->db->where('order_id', $order_id);
         $query = $this->db->get('user_order_log');
         $orderlog = $query->result_array();
@@ -238,16 +247,25 @@ class Api extends REST_Controller {
         }
     }
 
-    function order_mailchecksend_get($order_id, $order_no) {
-//        $subject = "Order Confirmation - Your Order with www.bespoketailorshk.com [$order_no] has been successfully placed!";
+    function order_mailchecksend_get($order_id, $order_no)
+    {
+        //        $subject = "Order Confirmation - Your Order with www.bespoketailorshk.com [$order_no] has been successfully placed!";
         $this->Product_model->order_mail($order_id);
     }
 
-    function orderMailVender_get($order_id) {
+    function orderMailVender_get($order_id)
+    {
         // $this->Product_model->order_mail_to_vendor($order_id);
         $this->response("hell");
     }
 
+    function varifyAccountOtp_post()
+    {
+        $mobile_no = $this->post('mobile_no');
+        $checklogin = $this->User_model->optSending($mobile_no, 1);
+        if ($checklogin["usercheck"] == '1') {
+            $this->session->set_userdata('tempmobieno', $mobile_no);
+        }
+        $this->response($checklogin);
+    }
 }
-
-?>

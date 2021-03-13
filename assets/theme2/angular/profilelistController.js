@@ -124,3 +124,5 @@ App.controller('ProfileDetailsController', function ($scope, $http, $timeout, $i
         $scope.memberprofile.profile = result.data;
     })
 })
+
+

@@ -1,15 +1,18 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class User_model extends CI_Model
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         $this->load->database();
     }
 
-    public function query_exe($query) {
+    public function query_exe($query)
+    {
         $query = $this->db->query($query);
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
@@ -20,27 +23,36 @@ class User_model extends CI_Model {
     }
 
     //check user if exist in system
-    function check_user($emailid) {
+    function check_user($emailid)
+    {
         $this->db->where('email', $emailid);
         $query = $this->db->get('admin_users');
         $user_details = $query->row();
         return $user_details;
     }
 
+    //check user if exist in system
+    function check_user_member($user_id)
+    {
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('shadi_profile');
+        $shadi_profile = $query->row();
+        return $shadi_profile;
+    }
+
+
     //end of check user5
     //get user detail by id
-    function user_details($id) {
+    function user_details($id)
+    {
         $this->db->where('id', $id);
-        $query = $this->db->get('admin_users');
-        if ($query->num_rows() > 0) {
-            return $query->result()[0];
-        } else {
-            return array();
-        }
+        $query = $this->db->get('member_users');
+        return $query->row_array();
     }
 
     //get user address by id
-    function user_address_details($id) {
+    function user_address_details($id)
+    {
         $this->db->where('user_id', $id);
         $this->db->order_by('status', 'desc');
         $query = $this->db->get('shipping_address');
@@ -52,7 +64,8 @@ class User_model extends CI_Model {
     }
 
     //get user creadit detail by id
-    function user_credits($id) {
+    function user_credits($id)
+    {
         $this->db->select('sum(credit) as credits');
         $this->db->where('user_id', $id);
         $query = $this->db->get('user_credit');
@@ -76,7 +89,8 @@ class User_model extends CI_Model {
 
     // end of user detail by id
     //get user detail by id
-    function user_reports($user_type) {
+    function user_reports($user_type)
+    {
 
         switch ($user_type) {
             case 'Blocked':
@@ -93,7 +107,8 @@ class User_model extends CI_Model {
         return $query->result();
     }
 
-    function registration_mail($user_id) {
+    function registration_mail($user_id)
+    {
         $this->db->where('id', $user_id);
         $query = $this->db->get('admin_users');
         $customer = $query->row();
@@ -119,7 +134,7 @@ class User_model extends CI_Model {
 
             $subject = "Welcome to Maharaja Mart - Your account with www.maharajamart.com has been successfully created!";
             $this->email->subject($subject);
-            
+
             $customerdetails['customer'] = $customer;
 
             $htmlsmessage = $this->load->view('Email/registration', $customerdetails, true);
@@ -136,7 +151,51 @@ class User_model extends CI_Model {
         }
     }
 
+    function optSending($mobile_no, $testmode = 0)
+    {
+        $returndata = array("status" => "0", "usercheck" => "0", "message" => "");
+        $this->db->from('member_users');
+        $this->db->where('contact_no', $mobile_no);
+        $query = $this->db->get();
+        $userdata = $query->row_array();
+
+        if ($userdata) {
+            $returndata["usercheck"] = "1";
+            $otpcheck = rand(1000, 9999);
+            $this->db->set('otp', $otpcheck);
+            $this->db->where('contact_no', $mobile_no);
+            $this->db->update('member_users');
+            $api_key = '56038B83D0D233';
+            $contacts = $mobile_no;
+
+            $from = 'FIVEDU';
+            if ($testmode == 0) {
+                $sms_text = urlencode("$otpcheck is your OTP to login to shadimychoice.com");
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, "http://sms.arasko.com/app/smsapi/index.php");
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, "key=" . $api_key . "&campaign=10800&routeid=7&type=text&contacts=" . $contacts . "&senderid=" . $from . "&msg=" . $sms_text);
+                $response = curl_exec($ch);
+                curl_close($ch);
+                $strvrfy = $response;
+                $checkstring = strpos($strvrfy, "SHOOT-ID");
+                if ($checkstring != false) {
+                    $returndata["message"] = "OTP sent to your mobile no.";
+                    $returndata["status"] = "1";
+                } else {
+                    $returndata["message"] = "OTP sending error.";
+                    $returndata["status"] = "2";
+                }
+            } else {
+                $returndata["status"] = "yes";
+            }
+        } else {
+            $returndata["message"] = "Mobile no. not regisered, please contact our customer care.";
+            $returndata["usercheck"] = "0";
+        }
+        return $returndata;
+    }
+
     // end of user detail by id
 }
-
-?>
