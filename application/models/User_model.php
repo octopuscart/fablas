@@ -184,6 +184,7 @@ class User_model extends CI_Model
                 if ($checkstring != false) {
                     $returndata["message"] = "OTP sent to your mobile no.";
                     $returndata["status"] = "1";
+                     $this->session->set_userdata('tempmobieno', $mobile_no);
                 } else {
                     $returndata["message"] = "OTP sending error.";
                     $returndata["status"] = "2";

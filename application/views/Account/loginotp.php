@@ -75,7 +75,8 @@ $this->load->view('layout/header');
                             </form>
                         </div>
                         <div class="" style="display: inline-block" ng-if="varifyaccountdata.status == 3">
-                            <a class="btn btn-send-message">Go Back</a>
+                            <br/>
+                            <a class="btn btn-send-message" href="<?php echo site_url("Account/login");?>">Go Back</a>
                         </div>
 
                     </div>
