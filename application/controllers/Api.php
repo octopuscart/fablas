@@ -262,7 +262,7 @@ class Api extends REST_Controller
     function varifyAccountOtp_post()
     {
         $mobile_no = $this->post('mobile_no');
-        $checklogin = $this->User_model->optSending($mobile_no, 1);
+        $checklogin = $this->User_model->optSending($mobile_no, 0);
         if ($checklogin["usercheck"] == '1') {
             $this->session->set_userdata('tempmobieno', $mobile_no);
         }
