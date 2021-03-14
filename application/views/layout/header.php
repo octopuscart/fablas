@@ -68,10 +68,7 @@
     </head>
 
     <?php
-
     $this->checklogin = $this->session->userdata('logged_in');
-
- 
     ?>
     <style>
         .preloadimage{
@@ -212,13 +209,13 @@ if ($this->checklogin) {
                                                 <li class="active"><a href="#">Home</a>
 
                                                 </li>
-                                                <li><a href="<?php echo site_url("Profile/profileList")?>">Search Partners</a></li>
-                                                <li><a href="">Happy Stories</a></li>
-                                                <li><a href="">Order Packages</a></li>
+                                                <li><a href="<?php echo site_url("Profile/profileList") ?>">Search Partners</a></li>
+                                                <li><a href="<?php echo site_url("our-packages");?>">Order Packages</a></li>
                                                 <li><a href="">Become Partner</a></li>
 
-                                                <li><a href="#">FAQ's</a></li>
-                                                <li><a href="">Contact</a></li>
+                                                <li><a href="<?php echo site_url("privacy-policy") ?>"">Privacy Policy</a></li>
+                                                <li><a href="<?php echo site_url("terms-and-conditions") ?>">Terms & Condition</a></li>
+                                                <li><a href="<?php echo site_url("contact")?>">Contact</a></li>
                                             </ul>
                                         </nav>
                                     </div>

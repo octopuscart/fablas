@@ -54,7 +54,11 @@ $route['default_controller'] = 'Shop';
 $route['404_override'] = 'Shop/error404';
 $route['contact'] = 'Shop/contactus';
 $route['about-us'] = 'Shop/aboutus';
-$route['privacy-policy'] = 'Shop/privacy_policy';
+$route['privacy-policy'] = 'Shop/pp';
+$route['terms-and-conditions'] = 'Shop/tnc';
+$route['our-packages'] = 'Shop/packages';
+
+
 
 
 $route['translate_uri_dashes'] = FALSE;

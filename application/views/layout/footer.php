@@ -13,10 +13,10 @@
                             <h3>Information</h3>
                             <ul class="info-list">
                                 <li><a href="#">FAQ's</a></li>
-                                <li><a href="">About Us</a></li>
-                                <li><a href="">Contact Us</a></li>
-                                <li><a href="">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="<?php echo site_url("about-us") ?>">About Us</a></li>
+                                <li><a href="<?php echo site_url("contact") ?>">Contact</a></li>
+                                <li><a href="<?php echo site_url("privacy-policy") ?>"">Privacy Policy</a></li>
+                                <li><a href="<?php echo site_url("terms-and-conditions") ?>">Terms & Condition</a></li>
                             </ul>
                         </div>
                     </div>
@@ -35,9 +35,9 @@
                         <div class="footer-box">
                             <h3>Buy Now</h3>
                             <ul class="info-list">
-                                <li><a href="">Golden Package</a></li>
-                                <li><a href="">Silver Package</a></li>
-                                <li><a href="">Bronze Package</a></li>
+                                <li><a href="<?php echo site_url("our-packages"); ?>">Golden Package</a></li>
+                                <li><a href="<?php echo site_url("our-packages"); ?>">Silver Package</a></li>
+                                <li><a href="<?php echo site_url("our-packages"); ?>">Bronze Package</a></li>
                             </ul>
                         </div>
                     </div>

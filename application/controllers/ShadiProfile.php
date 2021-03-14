@@ -12,13 +12,87 @@ class ShadiProfile extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-       
+
         $this->curd = $this->load->model('Curd_model');
         $this->userdata = $this->session->userdata('logged_in');
+        $session_user = $this->session->userdata('logged_in');
+        if ($session_user) {
+            $this->user_id = $session_user['login_id'];
+        } else {
+            $this->user_id = 0;
+        }
+
+        $this->db->where("member_id",  $this->user_id);
+        $query = $this->db->get("shadi_profile");
+        $this->memberprofiledata = $query->row();
     }
 
     public function addBaseProfile() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $data = array("last_aid" => 1);
+        $data['manager_id'] = $this->userdata['login_id'];
 
+        //community
+        $community_category = $this->Curd_model->get("set_community_category");
+        $data['community_category'] = $community_category;
+
+        //mother tounge
+        $set_mother_tongue = $this->Curd_model->get("set_mother_tongue");
+        $data['set_mother_tongue'] = $set_mother_tongue;
+
+        //qualification
+        $set_qualification_category = $this->Curd_model->get("set_qualification_category");
+        $set_qualification_dict = array();
+        foreach ($set_qualification_category as $key => $value) {
+            $set_qualification_dict[$value['title']] = $this->Curd_model->getByForeignKey("set_qualification", "category_id", $value['id']);
+        }
+        $data['set_qualification_dict'] = $set_qualification_dict;
+
+        //profession
+        $set_profession_sector = $this->Curd_model->get("set_profession_sector");
+        $data['set_profession_sector'] = $set_profession_sector;
+        $set_profession_category = $this->Curd_model->get("set_profession_category");
+        $set_profession_dict = array();
+        foreach ($set_profession_category as $key => $value) {
+            $set_profession_dict[$value['title']] = $this->Curd_model->getByForeignKey("set_profession", "category_id", $value['id']);
+        }
+        $data['set_profession_dict'] = $set_profession_dict;
+
+        //income
+        $set_annual_income = $this->Curd_model->get("set_annual_income");
+        $data['set_annual_income'] = $set_annual_income;
+
+        //city state
+        $set_state = $this->Curd_model->get("set_states");
+        $data['set_state'] = $set_state;
+
+        if (isset($_POST['addmemeber'])) {
+            $shadidata = $this->input->post();
+            unset($shadidata['addmemeber']);
+            $shadidata['status'] = "Progress";
+            $shadidata['manager_id'] = "10";
+            $shadidata['user_id'] = $this->user_id;
+
+            $this->db->insert("shadi_profile", $shadidata);
+            $last_id = $this->db->insert_id();
+            $profile_id = "SMC" . date("Ymd") . $last_id;
+            $this->db->where("id", $last_id);
+            $this->db->set("member_id", $profile_id);
+            $this->db->update("shadi_profile");
+            redirect("ShadiProfile/viewProfile/" . $profile_id);
+        }
+
+
+
+        $this->load->view('shadiProfile/createBaseProfile', $data);
+    }
+
+    public function addProfile() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $data = array("last_aid" => 1);
         $data['manager_id'] = $this->userdata['login_id'];
 
@@ -60,10 +134,8 @@ class ShadiProfile extends CI_Controller {
             $shadidata = $this->input->post();
             unset($shadidata['addmemeber']);
             $shadidata['status'] = "Active";
-            $shadidata['manager_id'] = "10";
-            print_r($shadidata);
             $this->db->insert("shadi_profile", $shadidata);
-             $last_id = $this->db->insert_id();
+            $last_id = $this->db->insert_id();
             $profile_id = "SMC" . date("Ymd") . $last_id;
             $this->db->where("id", $last_id);
             $this->db->set("member_id", $profile_id);
@@ -73,11 +145,13 @@ class ShadiProfile extends CI_Controller {
 
 
 
-        $this->load->view('shadiProfile/createBaseProfile', $data);
+        $this->load->view('shadiProfile/addProfile', $data);
     }
-
-    public function addProfile() {
-
+    
+   public function profilePreferences() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $data = array("last_aid" => 1);
         $data['manager_id'] = $this->userdata['login_id'];
 
@@ -133,8 +207,11 @@ class ShadiProfile extends CI_Controller {
         $this->load->view('shadiProfile/addProfile', $data);
     }
 
-    function editMemberProfile($profile_id) {
-        $data = array("profile_id" => $profile_id);
+    function editMemberProfile($profile_id, $profilesection="family") {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $data = array("profile_id" => $profile_id, "profilesection"=>$profilesection);
         //community
         $community_category = $this->Curd_model->get("set_community_category");
         $data['community_category'] = $community_category;
@@ -185,19 +262,36 @@ class ShadiProfile extends CI_Controller {
     }
 
     function listOfProfile() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $usertype = $this->userdata['user_type'];
         $data = array("usertype" => $usertype);
         $this->load->view('shadiProfile/listProfile', $data);
     }
 
-    function viewProfile($profile_id) {
+    function dashboard($profile_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $data = array("profile_id" => $profile_id);
-        $this->load->view('shadiProfile/viewProfile', $data);
+        $this->load->view('shadiProfile/dashboard', $data);
+    }
+
+    function viewProfile($profile_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
+        $data = array("profile_id" => $profile_id);
+             $this->load->view('shadiProfile/dashboard', $data);
     }
 
     function profilePhotos($profile_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $data = array("profile_id" => $profile_id);
-        $config['upload_path'] = ADMINURL. 'assets/profile_image';
+        $config['upload_path'] = ADMINURL . 'assets/profile_image';
         $config['allowed_types'] = '*';
         if (isset($_POST['submit'])) {
             $picture = '';
@@ -223,6 +317,7 @@ class ShadiProfile extends CI_Controller {
                 'member_id' => $profile_id,
                 'image' => $picture,
                 'status' => "",
+                "photo_status" => "",
                 'datetime' => date("Y-m-d H:m:s"),
                 'display_index' => 0,
             );
@@ -271,6 +366,9 @@ class ShadiProfile extends CI_Controller {
     }
 
     function profileContact($profile_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $data = array("profile_id" => $profile_id);
 
 

@@ -84,6 +84,11 @@ $this->load->view('layout/header');
 
                                                 </div>
                                             </form>
+                                            <hr/>
+                                            <p>
+                                                All photos uploaded are checked as per Photo Guidelines and 98% of photos get activated within 2 hours.<br/>
+                                                अपलोड की गई सभी तस्वीरों को फोटो दिशानिर्देशों के अनुसार जांचा जाता है और 98% तस्वीरें 2 घंटे के भीतर सक्रिय हो जाती हैं।
+                                            </p>
 
                                         </div>
                                     </div>
@@ -111,6 +116,14 @@ $this->load->view('layout/header');
                                                                 <input type="hidden" name="image_id[]" value="{{photo.id}}" />
                                                                 <button  type="button" class="btn btn-success" ng-click="viewPhoto(photo)">View Image</button>
                                                             </div>
+                                                            <p ng-if="photo.photo_status=='inactive'" class="inactivemessage">
+                                                                Awaiting Approval
+
+                                                            </p>
+                                                            <p ng-if="photo.photo_status!='inactive'" class="photostate">
+                                                                {{photo.status?photo.status:"Other"}}
+
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>

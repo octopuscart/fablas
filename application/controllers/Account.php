@@ -27,6 +27,11 @@ class Account extends CI_Controller {
         if ($this->user_id == 0) {
             redirect('Account/login');
         }
+        $checkmemberprofile = $this->User_model->check_user_member($this->user_id);
+        if ($checkmemberprofile) {
+
+            redirect('ShadiProfile/viewProfile/' . $checkmemberprofile->member_id);
+        }
 
         $this->db->where('id', $this->user_id);
         $query = $this->db->get('member_users');
@@ -104,7 +109,7 @@ class Account extends CI_Controller {
 
                     $this->session->set_userdata('logged_in', $sess_data);
 
-                   
+
 
                     redirect('Account/profile');
                 } else {
@@ -143,9 +148,9 @@ class Account extends CI_Controller {
                         'login_id' => $userdata['id'],
                     );
                     $user_id = $userdata['id'];
-                    
+
                     $this->session->set_userdata('logged_in', $sess_data);
-                   
+
                     redirect('Account/profile');
                 } else {
                     $data1['msg'] = 'Invalid OTP, Please Try Again';
@@ -320,7 +325,58 @@ class Account extends CI_Controller {
 
     function testReg() {
         $user_id = $this->user_id;
-        $this->User_model->registration_mail($user_id);
+    }
+
+    function paymentCallBack() {
+        
+    }
+
+    function payment() {
+        $user_id = $this->user_id;
+        $paytm_mid = "JExSZL42779741544455";
+        require(APPPATH . 'libraries/Paytm/PaytmChecksum.php');
+        $paytmParams = array();
+
+        $paytmParams["body"] = array(
+            "requestType" => "Payment",
+            "mid" => "$paytm_mid",
+            "websiteName" => "Shaidimychoice.com",
+            "orderId" => "ORDERID_98765",
+            "callbackUrl" => site_url("Account/paymentCallBack"),
+            "txnAmount" => array(
+                "value" => "1.00",
+                "currency" => "INR",
+            ),
+            "userInfo" => array(
+                "custId" => "CUST_001",
+            ),
+        );
+
+        /*
+         * Generate checksum by parameters we have in body
+         * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
+         */
+        $checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], JSON_UNESCAPED_SLASHES), "YOUR_MERCHANT_KEY");
+
+        $paytmParams["head"] = array(
+            "signature" => $checksum
+        );
+
+        $post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
+
+        /* for Staging */
+        $url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=$paytm_mid&orderId=ORDERID_98765";
+
+        /* for Production */
+// $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=YOUR_MID_HERE&orderId=ORDERID_98765";
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
+        $response = curl_exec($ch);
+        print_r($response);
     }
 
 }

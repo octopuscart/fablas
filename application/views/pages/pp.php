@@ -3,113 +3,211 @@ $this->load->view('layout/header');
 ?>
 
 
-<!-- Inner Page Banner Area Start Here -->
-<div class="inner-page-banner-area" style="    background: url(<?php echo base_url(); ?>assets/images/shop2.jpg);
-     background-size: cover;
-     background-position: 459px -1031px;">
+<div class="inner-page-banner-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="breadcrumb-area">
-                    <h1>Privacy Policy
-                    </h1>
-                    <ul>
-                        <li><a href="#">Home</a> /</li>
-                        <li>Privacy Policy
-                        </li>
-                    </ul>
+                    <h1>Privacy Policy</h1>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Inner Page Banner Area End Here -->
-<!-- Contact Us Page Area Start Here -->
-<!-- Single Blog Page Area Start Here -->
-<div class="single-blog-page-area" style="padding: 50px 0 30px;">
+
+<div class="contact-us-page-area" style="padding: 10px;">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h4>Overview</h4>
-                <p>At Maharajamart.com data protection is a matter of trust and your privacy is very important to us. We use your personal information only in the manner set out in this Privacy Policy. Please read this privacy policy to learn more about our information gathering and dissemination practices.</p>
-                <p>The privacy practices of this statement apply to our services available under the domain and sub-domains of Maharajamart.com (the "Site") and apply generally to our parent, affiliates, subsidiaries or joint venture websites. By visiting the Site you agree to be bound by the terms and conditions of this Privacy Policy.</p>
-                <p>This Privacy Policy explains how Maharajamart.com gathers personal information, classified as mandatory or optional as part of the normal operation of our services; and uses, discloses and protects such information through the Site. This detailed privacy policy enables you to take informed decisions in dealings with us. Our parent, subsidiaries and joint ventures operate under similar privacy practices subject to the requirements of applicable law.</p>
-                <p>By registering with Maharajamart.com, you acknowledge your acceptance of the terms of this Privacy Policy, expressly consent to our use and disclosure of your personal information in accordance with this Privacy Policy and that any personal information provided by you through Maharajamart.com is provided under a lawful contract. This Privacy Policy is incorporated into and subject to the terms of the User Agreement. Note: Our privacy policy is subject to change at any time without notice. To make sure you are aware of any changes, please review this policy periodically.</p>
-                <hr/>
-                <h4><strong>Your Privacy</strong></h4>
-                <p>At Maharajamart.com, we are extremely proud of our commitment to protect your privacy. We value your trust in us. We work hard to earn your confidence so that you can enthusiastically use our services and recommend your friends and family to participate in dealing with us. Please read the following policy to understand how your personal information will be treated as you make full use of our Site.</p>
-                <hr/>
-                <h4><strong>Maharajamart.com Privacy Assurance</strong></h4>
-                <p>Maharajamart.com promises that we will not sell or rent your personal information to third parties for their marketing purposes without your explicit consent. From time to time we may reveal general statistical information about our Web site and visitors, such as number of visitors, number and type of goods and services purchased, etc. Your trust and confidence are our highest priority.</p>
-                <hr/>
-                <h4><strong>Information that Maharajamart.com collects</strong></h4>
-                <p>When you use our Site, we collect and store your personal information. We gather your personal information in order to record, support and facilitate your participation in the activities you select, track your preferences, to provide you with a customized Site experience, to notify you of any updated information and new activities and other related functions offered by Maharajamart.com, keep you informed about latest content available on the Site, special offers, and other products and services of Maharajamart, to assist you with customer service or technical support issues, to follow up with you after your visit, to otherwise support your relationship with Maharajamart or to prevent fraud and unlawful use. For the aforesaid purpose, we only collect such personal information that we consider relevant to understand you or your interests.</p>
-                <p>In general, you can visit the Site without having to provide your personal information during which time you remain anonymous and at no time can we identify you unless you have an account on the Site and log on with your user name and password. Once you provide your personal information, you are no more anonymous to us. To fully use our Site, you will need to register using our online registration form, where you may be required to provide us with your name, date of birth, contact number, email id, user id, password, residence / place of business information, billing information, shipping information, bank account details and other personal information as indicated on the forms throughout the Site. Further the fields are marked as mandatory or optional. You always have the option to not provide information by choosing not to use a particular service or feature on the Site. You may provide us with your Maharajamart.com registered user ID. We may automatically track certain information about you based upon your behavior on our site. We use this information to analyze trends, administer the site, track a user&rsquo;s movement and gather broad demographic information, to better understand, protect and serve our users. This information is compiled and analyzed on an aggregated basis. This information may include the URL that you just came from (whether this URL is on our site or not), which URL you next go to (whether this URL is on our site or not), your computer browser information, and your IP address.</p>
-                <p>We use data collection devices such as "cookies" on certain pages of the Site to help analyze our web page flow, measure promotional effectiveness, and promote trust and safety. "Cookies" are small files which identify your computer to our server as a unique user when you visit certain pages on the Site and they are stored by your Internet browser on your computer's hard drive. We offer certain features that are only available through the use of a "cookie". We also use cookies to allow you to enter your password less frequently during a session. Cookies can also help us provide information that is targeted to your interests. Most cookies are "session cookies," meaning that they are automatically deleted from your hard drive at the end of a session. You are always free to decline our cookies if your browser permits, although in that case you may not be able to use full functionality of the Site. We only use cookies for your convenience in using the Site and not for obtaining or using any other information about you. We do not control the use of cookies by third parties.</p>
-                <p>If you choose to buy or sell on the Site, we collect information about your buying and selling behavior.</p>
-                <p>If you are a seller, we also collect some additional information, such as a billing address, banking information other payment instrument details and tracking information from cheques or money orders.</p>
-                <p>If you choose to post messages on our message boards, chat rooms or other message areas or leave feedback for other users, we retain this information as necessary to resolve disputes, provide customer support and troubleshoot problems as permitted by law.</p>
-                <p>If you send us personal correspondence, such as emails or letters, or if other users or third parties send us correspondence about your activities or postings on the Site, we may collect such information into a file specific to you.</p>
-                <p>If you register for the Site on another web site or use a web site providing a service for Maharajamart or a web site that helps facilitates your activity on the Site, that web site may provide personal information about you and your transactions back to us.</p>
-                <hr/>
-                <h4><strong>Our use of your information</strong></h4>
-                <p>We use your personal information to facilitate the services you request. We do not sell, rent, trade or exchange any personally-identifying information of our Users. We may provide your collected information to our affiliates and service providers under contract (such as customer care, data analytics) to support the operation of the Website and our services. To the extent we use your personal information to market to you, we will provide you the ability to opt-out of such uses. We use your personal information to: resolve disputes; troubleshoot problems; help promote safe trading; collect fees owed; measure consumer interest in the services provided by us, inform you about online and offline offers, products, services, and updates; customize your experience; detect and protect us against error, fraud and other criminal activity; enforce our User Agreement, and in general to improve the user experience and make it comparable to other e-commerce websites; and as otherwise described to you at the time of collection. In our efforts to continually improve our product and service offerings, we collect and analyze demographic, profile and usage data about our users' activity on our Site.</p>
-                <p>We use your personal information to improve our platform, improve the Site's content and product offerings, prevent or detect fraud or abuses of our website and tailor it to meet your needs, so as to provide you with a smooth, efficient, safe and customized experience while using the Site.</p>
-                <p>We may also use your personal information to display contents and services that are targeted to your interests. By accepting the User Agreement and Privacy Policy, you expressly agree to receive this information. If you do not wish to receive these communications, we encourage you to opt out of the receipt of certain communications in your profile under My Account or by clicking unsubscribe any email communication. You may make changes to your profile at any time.</p>
-                <hr/>
-                <h4><strong>Our Disclosure of your information</strong></h4>
-                <p>Your personal information is an important part of our business and we are not in the business of selling it to others. Maharajamart.com shares your personal information only to categories of persons that are either subject to this Privacy Policy or follow practices at least as protective as those described in this Privacy Policy as more particularly described below:</p>
-                <hr/>
-                <h5><strong>Advertisements</strong></h5>
-                <p>A. Where a user enters information on any form of an advertiser, the information is simultaneously collected by Maharajamart.com and the advertiser. The information is used by Maharajamart.com in accordance with the terms of this privacy policy and is used by the advertiser as per the advertiser&rsquo;s prevalent privacy policies. Since we do not control the privacy practices of these advertisers, you should evaluate their practices before deciding to provide the said information.</p>
-                <p>B. Maharajamart.com may also use personally identifiable information in an aggregated form and disclose to advertisers and other third parties for other marketing and promotional purposes.</p>
-                <hr/>
-                <h5><strong>Classifieds Listings</strong></h5>
-                <p>When a user lists a classified advertisement, and the advertisement receives an expression of interest by the interested user, the interested user will be provided the contact information of the user listing the advertisement as provided in the user's registration form.</p>
-                <hr/>
-                <h5><strong>Items and Services offered on the Site by third parties</strong></h5>
-                <p>There are certain items and services for which third parties request for information to perform services on our behalf. (example: an image/picture for a customized mug/t-shirt). The information provided by the user for such purposes is simultaneously collected by Maharajamart.com and the respective third party. This information is utilized by the third party in accordance with its privacy policy and the terms of the offer. Because we do not control the privacy practices of these third parties, you should evaluate their practices before deciding to use their services.</p>
-                <hr/>
-                <h5><strong>Internal Service Providers</strong></h5>
-                <p>We may employ third parties services to facilitate or outsource one or more aspects of the business, product and service operations that we provide to you on the Site (e.g., search technology, discussion boards, bill collection, affiliate and rewards programs, co-branded credit cards) and therefore we may provide some of your personal information to these internal service providers. These internal service providers' are subject to confidentiality agreements with us and other legal restrictions that prohibit their use of your personal information for any other purpose except to facilitate the specific outsourced service.. In the event of your direct involvement with the internal service provider, any additional information disclosed by you to them shall be subject to internal service provider&rsquo;s own applicable privacy policy and the Maharajamart.com shall not be responsible for the same.</p>
-                <hr/>
-                <h5><strong>Other Corporate Entities</strong></h5>
-                <p>We share much of our data, including personal information about you, with our parent, affiliates, subsidiaries, and joint ventures that are committed to serving your online trading needs and related services, throughout the world. To the extent that these entities have access to your personal information, they remain bound by the existing Privacy Policy. As we continue to develop our business, we might sell or buy stores, subsidiaries or business units. In such transactions, customer&rsquo;s personal information generally is one of the transferred business assets but remains subject to the promises made in any pre-existing Privacy Policy.</p>
-                <hr/>
-                <h5><strong>Legal Requests</strong></h5>
-                <p>We cooperate with law enforcement and regulatory inquiries, as well as other third parties to enforce laws, such as: intellectual property rights, fraud and other rights, to help protect you and the community from bad actors. Therefore, in response to a verified request by law enforcement or other government officials relating to a criminal investigation or alleged illegal activity, we may (and you authorize us to) disclose some of your personal information as is reasonably necessary to respond to subpoenas, court orders, or other legal process. We may disclose personal information to law enforcement offices, third party rights owners, or others in the good faith belief that such disclosure is reasonably necessary to: enforce our Terms or Privacy Policy; respond to claims that an advertisement, posting or other content violates the rights of a third party; or protect the rights, property or personal safety of our users or the general public.</p>
-                <hr/>
-                <h5><strong>Your use of other users' information</strong></h5>
-                <p>In order to facilitate interaction among all Maharajamart.com members (buyers, sellers, services providers such as payment gateway and 3PLs, our Site allows you to access other users' contact information. Further, as a seller you will be sent via email the Maharajamart.com registered user ID email address and other information, and as a winning buyer you will be sent via email the Maharajamart.com registered user ID email address and other information of the seller. By entering into our User Agreement, you agree that, with respect to other user's personally identifiable information that you obtain through the Site or through a Maharajamart.com-related communication or Maharajamart-facilitated transaction, Maharajamart.com hereby grants to you a license to use such information only for:</p>
-                <p>(a). Maharajamart.-related communications that are not unsolicited commercial messages, (b). using co-branded services offered through Maharajamart.com (e.g. insurance, shipping and fraud complaints), and (c). any other purpose that such user expressly opts into after adequate disclosure of the purpose(s).</p>
-                <p>In all cases, you must give users an opportunity to remove themselves from your database and a chance to review what information you have collected about them. In addition, under no circumstances, except as defined in this Section, can you disclose personally identifiable information about another user to any third party without our consent and the consent of such other user after adequate disclosure.</p>
-                <p>Maharajamart.com and our users do not tolerate spam. Therefore, without limiting the foregoing, you are not licensed to add a Maharajamart.com user-even a user who has purchased an item from you-to your mail list (email or physical mail) without their express consent after adequate disclosure.</p>
-                <hr/>
-                <h4><strong>What about children's privacy?</strong></h4>
-                <p>Use of Maharajamart.com is available only to persons who can form a legally binding contract. If you are under the age of 18, you cannot buy or sell any items on the Site. If you wish to purchase or sell an item on the Site such purchase or sale may be made by your legal guardian or parents who have registered as users of the Site.</p>
-                <h4><strong>Access or change your personally identifiable information</strong></h4>
-                <p>To protect your privacy and security, we will verify your identity before granting access or making changes to your personally identifying information. If you have registered your profile on Maharajamart.com, your registered user ID and Password are required in order to access your profile information.</p>
-                <h4><strong>Security</strong></h4>
-                <p>When you place orders or access your account information, we offer the use of a secure server. The secure server software (SSL) encrypts all information you put in before it is sent to us. Once your information is in our possession we adhere to strict security guidelines in compliance, protecting it against unauthorized access.</p>
-                <h4><strong>Your Consent</strong></h4>
-                <p>By using the Site and/ or by providing your information, you acknowledge our use of your personal information in the manner as set out in this Privacy Policy. Any changes to our privacy policy will be communicated through our Web site at least 10 days in advance of implementation. Name and address of the entity collecting and retaining your information shall be the contracting entity stated in the Maharajamart.com User Agreement.</p>
-                <h4><strong>Grievance Officer:</strong></h4>
-                <p>In accordance with Information Technology Act 2000 and rules made there under, the name and contact details of the Grievance Officer are published on the Site in User Agreement.</p></div>
-        </div>
+
+ 
+
+   
+        <p class=MsoNormal style='text-align:justify;line-height:normal'><b
+                style='mso-bidi-font-weight:normal'><span style='font-family:
+                                                      "Arial",sans-serif;background:white'>Your website may use the Privacy Policy
+                    given below:<o:p></o:p></span></b></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;text-align:justify;background:white'><span style='
+                ;background:white'>The terms &quot;We&quot; /
+                &quot;Us&quot; / &quot;Our&quot;/”Company” individually and collectively refer
+                to shadimychoice.com .and the terms &quot;You&quot; /&quot;Your&quot; /
+                &quot;Yourself&quot; refer to the users. </span><span style='
+                                                                  '><o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;text-align:justify;background:white'><span style='
+                '>This Privacy Policy is an electronic record in
+                the form of an electronic contract formed under the information Technology Act,
+                2000 and the rules made thereunder and the amended provisions pertaining to
+                electronic documents / records in various statutes as amended by the
+                information Technology Act, 2000. This Privacy Policy does not require any
+                physical, electronic or digital signature.<o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;text-align:justify;background:white'><span style='
+                '>This Privacy Policy is a legally binding
+                document between you and <span style='background:yellow;mso-highlight:yellow'>shadimychoice.com .</span>
+                (both terms defined below). The terms of this Privacy Policy will be effective
+                upon your acceptance of the same (directly or indirectly in electronic form, by
+                clicking on the I accept tab or by use of the website or by other means) and
+                will govern the relationship between you and shadimychoice.com  for your use of the
+                website “<b style='mso-bidi-font-weight:normal'>shadimychoice.com</b>” (defined below).<o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;text-align:justify;background:white'><span style='
+                '>This document is published and shall be
+                construed in accordance with the provisions of the Information Technology
+                (reasonable security practices and procedures and sensitive personal data of
+                information) rules, 2011 under Information Technology Act, 2000; that require
+                publishing of the Privacy Policy for collection, use, storage and transfer of
+                sensitive personal data or information.<o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;text-align:justify;background:white'><span style='
+                '>Please read this Privacy Policy carefully by
+                using the Website, you indicate that you understand, agree and consent to this Privacy
+                Policy. If you do not agree with the terms of this Privacy Policy, please do
+                not use this Website. <o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;text-align:justify;background:white'><span style='
+                '>By providing us your Information or by making
+                use of the facilities provided by the Website, You hereby consent to the
+                collection, storage, processing and transfer of any or all of Your Personal
+                Information and Non-Personal Information by us as specified under this Privacy
+                Policy. You further agree that such collection, use, storage and transfer of
+                Your Information shall not cause any loss or wrongful gain to you or any other
+                person.<o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:0in;margin-left:
+           0in;margin-bottom:.0001pt;background:white'><strong><span style='font-size:
+                        10.0pt;'>USER INFORMATION</span></strong><span
+                ><b><span style=''>&nbsp;</span></b></span><span
+                style=''><o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:-4.5pt;margin-bottom:0in;margin-left:
+           0in;margin-bottom:.0001pt;tab-stops:6.75in;background:white'><span
+                style=''>To avail certain
+                services on our Websites, users are required to provide certain information for
+                the registration process namely: - a) your name, b) email address, c) sex, d)
+                age, e) PIN code, f) credit card or debit card details g) medical records and
+                history h) sexual orientation, <span class=SpellE>i</span>) biometric
+                information, j) password etc., and / or your occupation, interests, and the
+                like. The Information as supplied by the users enables us to improve our sites
+                and provide you the most user-friendly experience.<br>
+                <br>
+                All required information is service dependent and we may use the above said user
+                information to, maintain, protect, and improve its services (including
+                advertising services) and for developing new services<br>
+                <br>
+                Such information will not be considered as sensitive if it is freely available
+                and accessible in the public domain or is furnished under the Right to
+                Information Act, 2005 or any other law for the time being in force.<br>
+                <br>
+                <strong><span style=''>COOKIES</span></strong><br>
+                <span class=GramE>To</span> improve the responsiveness of the sites for our
+                users, we may use &quot;cookies&quot;, or similar electronic tools to collect
+                information to assign each visitor a unique, random number as a User
+                Identification (User ID) to understand the user's individual interests using the
+                Identified Computer. Unless you voluntarily identify yourself (through
+                registration, for example), we will have no way of knowing who you are, even if
+                we assign a cookie to your computer. The only personal information a cookie can
+                contain is information you supply (an example of this is when you ask for our
+                Personalised Horoscope). A cookie cannot read data off your hard drive. Our
+                advertisers may also assign their own cookies to your browser (if you click on
+                their ads), a process that we do not control.<span >&nbsp;</span><br>
+                <br>
+                Our web servers automatically collect limited information about your computer's
+                connection to the Internet, including your IP address, when you visit our site.
+                (Your IP address is a number that lets computers attached to the Internet know
+                where to send you data -- such as the web pages you view.) Your IP address does
+                not identify you personally. We use this information to deliver our web pages
+                to you upon request, to tailor our site to the interests of our users, to
+                measure traffic within our site and let advertisers know the geographic
+                locations from where our visitors come.<span >&nbsp;</span><strong><span
+                        style=''><o:p></o:p></span></strong></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;background:white'><strong><span style=''>LINKS
+                    TO THE OTHER SITES</span></strong><span style='><br>
+                <span class=GramE><span style='background:white'>Our</span></span><span
+                    style='background:white'> policy discloses the privacy practices for our own
+                    web site only. Our site provides links to other websites also that are beyond
+                    our control. We shall in no way be responsible in way for your use of such
+                    sites.</span><strong><span style=''>5. <o:p></o:p></span></strong></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;background:white'><span class=GramE><strong><span style='
+                                          '>INFORMATION SHARING</span></strong><span
+                    style=''><br>
+                    We shares the sensitive personal information to any third party without
+                    obtaining the prior consent of the user in the following limited circumstances:<br>
+                    <br>
+                    <strong><span style=''>(a)</span></strong><span
+                        >&nbsp;</span>When it is requested or required by
+                    law or by any court or governmental agency or authority to disclose, for the
+                    purpose of verification of identity, or for the prevention, detection,
+                    investigation including cyber incidents, or for prosecution and punishment of
+                    offences.</span></span><span style=''>
+                These disclosures are made in good faith and belief that such disclosure is
+                reasonably necessary for enforcing these Terms; for complying with the
+                applicable laws and regulations.<span >&nbsp;</span><br>
+                <br>
+                <strong><span style=''>(b)</span></strong><span
+                    >&nbsp;</span>We proposes to share such information
+                within its group companies and officers and employees of such group companies
+                for the purpose of processing personal information on its behalf. We also
+                ensure that these recipients of such information agree to process such
+                information based on our instructions and in compliance with this Privacy
+                Policy and any other appropriate confidentiality and security measures.<br>
+                <br>
+                <strong><span style=''>INFORMATION SECURITY</span></strong><br>
+                <span class=GramE>We</span> take appropriate security measures to protect
+                against unauthorized access to or unauthorized alteration, disclosure or
+                destruction of data. These include internal reviews of our data collection,
+                storage and processing practices and security measures, including appropriate
+                encryption and physical security measures to guard against unauthorized access
+                to systems where we store personal data.<br>
+                <br>
+                All information gathered on our Website is securely stored within our
+                controlled database. The database is stored on servers secured behind a
+                firewall; access to the servers is password-protected and is strictly limited.
+                However, as effective as our security measures are, no security system is
+                impenetrable. We cannot guarantee the security of our database, nor can we guarantee
+                that information you supply will not be intercepted while being transmitted to
+                us over the Internet. And, of course, any information you include in a posting
+                to the discussion areas is available to anyone with Internet access.<span
+                    >&nbsp;</span><br>
+                <br>
+                However the internet is an ever evolving medium. We may change our Privacy Policy
+                from time to time to incorporate necessary future changes. Of course, our use
+                of any information we gather will always be consistent with the policy under
+                which the information was collected, regardless of what the new policy may be.<span
+                    >&nbsp;</span><br>
+                <br>
+                <strong><span style=''>Grievance Redressal</span></strong><br>
+                Redressal Mechanism: Any complaints, abuse or concerns with regards to content
+                and or comment or breach of these terms shall be immediately informed to the
+                designated Grievance Officer as mentioned below via in writing or through email
+                signed with the electronic signature to<span >&nbsp;</span>shadimychoice.com .
+                (&quot;Grievance Officer&quot;).<span >&nbsp;</span><br>
+                <br>
+                Mr. Shalendra Rajput  <strong><span style=''>(Grievance
+                        Officer<span class=GramE>)</span></span></strong><br>
+            </span><a href="http://www.magicbricks.com/" target="_blank"><strong><span
+                        style=';color:windowtext;
+                        text-decoration:none;text-underline:none'>www.shadimychoice.com </span></strong></a><span
+                style=''><br>
+                Company Name &amp; Address<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
+
+        <p style='margin-top:7.35pt;margin-right:0in;margin-bottom:7.35pt;margin-left:
+           0in;background:white'><span style=''>Email:<span
+                    >shalendra@shadimychoice.com</span><br>
+                Ph:<span style='mso-spacerun:yes'>  +91 97706 75143</span><span style='background:white'><o:p></o:p></span></span></p>
 
     </div>
 </div>
-</div>
-<!-- Single Blog Page Area End Here -->
-<!-- Contact Us Page Area End Here -->
-
-
-
-
-
-
-<!--angular controllers-->
-<script src="<?php echo base_url(); ?>assets/theme/angular/productController.js"></script>
 
 
 <?php

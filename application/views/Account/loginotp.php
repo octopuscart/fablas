@@ -69,7 +69,7 @@ $this->load->view('layout/header');
                                     <input type="hidden"  name="contact_no" value="{{varifyaccountdata.mobile_no}}" required=""/>
                                     <input type="text" class="form-control varifyinputbox" placeholder="Enter OTP" name="otp" style="    width: 130px;">
                                     <span class="input-group-btn">
-                                        <button class="btn-send-message" type="submit" name="submit"> Verify Now</button>
+                                        <button class="btn-send-message" type="submit" name="signIn"> Verify Now</button>
                                     </span>
                                 </div><!-- /input-group -->
                             </form>

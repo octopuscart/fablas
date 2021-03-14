@@ -17,17 +17,26 @@ class Profile extends CI_Controller {
 
     //function for product list
     function profileList() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $data = array();
         $this->load->view('profiles/profilelist', $data);
     }
 
     function ProductSearch() {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $data['keyword'] = $_GET['keyword'];
         $this->load->view('Product/productSearch', $data);
     }
 
     //function for details
     function profileDetails($member_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login');
+        }
         $checkprofile = $this->Shadi_model->checkProfile($member_id);
         $data = array();
         if ($checkprofile) {
@@ -38,6 +47,4 @@ class Profile extends CI_Controller {
         }
     }
 
-
-  
 }

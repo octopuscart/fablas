@@ -61,7 +61,7 @@ App.controller('editShadiProfileController', function ($scope, $http, $timeout, 
     $scope.marital_status = {"status": "Never Married", "marital_status_children": "No", "marital_children_count": ""};
     //end of marital status
     $scope.memberData = {"profile": {}};
-    var religiousurl = adminapiurl + "localApi/getSimpleTableDataByPrId/shadi_profile/member_id/" + memberprofile;
+    var religiousurl = adminapiurl + "localApi/getShadiProfileById/" + memberprofile;
     $http.get(religiousurl).then(function (rdata) {
         $scope.memberData.profile = rdata.data;
         console.log($scope.memberData.profile.marital_status);

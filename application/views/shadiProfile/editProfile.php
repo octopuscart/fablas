@@ -25,14 +25,14 @@ $this->load->view('layout/header');
     .list-group-item {
         position: relative;
         display: block;
-        padding: 5px 3px;
+ 
         margin-bottom: -1px;
         color:black;
     }
     .list-group-item.active a {
         position: relative;
         display: block;
-        padding: 5px 3px;
+
         margin-bottom: -1px;
         text-decoration: none;
         color:white;
@@ -40,7 +40,7 @@ $this->load->view('layout/header');
     .list-group-item.active {
         position: relative;
         display: block;
-        padding: 5px 3px;
+   
         margin-bottom: -1px;
         color:white;
         background: #242a30;
@@ -62,7 +62,7 @@ $this->load->view('layout/header');
 <div class="single-blog-page-area" style="margin: 0;    padding-top: 20px;">
     <div class="container-fluid">
         <div class="row">
-            <section class="" ng-controller="viewShadiProfileController">
+            <section class="" ng-controller="editShadiProfileController">
 
                 <!-- begin #content -->
                 <div id="content" class="content">
@@ -92,7 +92,7 @@ $this->load->view('layout/header');
 
                                         <div class="tab-content" style="padding: 0px">
                                             <div class="tab-pane fade active in" id="basicinformation">
-                                                <div class="panel panel-inverse">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h2 class="panel-title">Basic Information
                                                         </h2>
@@ -244,7 +244,7 @@ $this->load->view('layout/header');
                                             </div>
                                             <div class="tab-pane fade" id="religious">
                                                 <!--religous profile-->
-                                                <div class="panel panel-inverse">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h2 class="panel-title">Religious Background
                                                         </h2>
@@ -304,7 +304,7 @@ $this->load->view('layout/header');
                                             </div>
                                             <div class="tab-pane fade" id="horoscope">
                                                 <!--HOROSCOPE profile-->
-                                                <div class="panel panel-inverse">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h2 class="panel-title">Horoscope Information
                                                         </h2>
@@ -378,7 +378,7 @@ $this->load->view('layout/header');
                                             </div>
                                             <div class="tab-pane fade" id="education">
                                                 <!--EducationCarrier profile-->
-                                                <div class="panel panel-inverse">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h2 class="panel-title">Education & Career
 
@@ -549,7 +549,7 @@ $this->load->view('layout/header');
                                             </div>
                                             <div class="tab-pane fade" id="familydetails">
                                                 <!--Family profile-->
-                                                <div class="panel panel-inverse">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h2 class="panel-title">Family
 
@@ -561,7 +561,7 @@ $this->load->view('layout/header');
                                                                 <tr >
                                                                     <td class="field">Father's Name</td>
                                                                     <td>
-                                                                        <input type="text" name="father_name" class="form-control" placeholder="Father's Name" ng-model="memberData.profile.father_name">       
+                                                                        <input type="text" name="father_name" class="form-control" placeholder="Father's Name" ng-model="memberData.profile.father_name" >       
                                                                     </td>
                                                                 </tr>
                                                                 <tr >
@@ -620,7 +620,7 @@ $this->load->view('layout/header');
                                             </div>
                                             <div class="tab-pane fade" id="familybackground">
                                                 <!--Family profile-->
-                                                <div class="panel panel-inverse">
+                                                <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h2 class="panel-title">Family Background
 
@@ -733,7 +733,7 @@ $this->load->view('layout/header');
                                             <div class="panel-body">
                                                 <button type="submit" name="updatememeber" class="btn-send-message btn-lg" value="updateProfile"><i class="fa fa-save"></i> Update Profile</button>
 
-                                                <a class="btn btn-inverse btn-lg pull-right" href="<?php echo site_url("ShadiProfile/viewProfile/" . $profile_id); ?>" value="updateProfile"><i class="fa fa-arrow-left"></i> Back</a>
+                                                <a class="btn btn-default btn-lg pull-right" href="<?php echo site_url("ShadiProfile/viewProfile/" . $profile_id); ?>" value="updateProfile"><i class="fa fa-arrow-left"></i> Back</a>
                                             </div>
                                         </div>
 
