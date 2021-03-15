@@ -26,21 +26,20 @@ $this->load->view('layout/header');
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="">
                 <div class="contact-us-left" > 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14765.873530990702!2d114.1717583!3d22.2981191!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc69c3e63f1558607!2sMaharaja%20Mart%20Ltd!5e0!3m2!1sen!2sin!4v1586491736073!5m2!1sen!2sin" width="100%" height="380" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118309.70718967491!2d76.4218347454114!3d22.08100478737084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397d557bb2404a01%3A0x2e2051d5a2518e32!2sSant%20Singaji%20Mobile%20Shop!5e0!3m2!1sen!2sin!4v1615799227944!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="contact-us-right">
-                    <h2 class="title-sidebar" style="margin-bottom: 10px;">Showroom</h2>
+                    <h2 class="title-sidebar" style="margin-bottom: 10px;">Our Office</h2>
                     <ul style="    margin-bottom: 30px;">
                         <li class="con-address">
-                            205, 2nd Floor, Haiphong Mansions,<br/>
-                            99-101, Nathan Road,<br/>
-                            Tsim Sha Tsui, Kowloon, Hong Kong
+                            1, Subhash Chowk Mundi<br/>
+                            Dist Khandwa,<br/>
+                            MAdhya Pradesh,450112
                         </li>
-                        <li class="con-envelope">sales@maharajamart.com</li>
-                        <li class="con-phone">+(852) 2756 5611</li>
+                        <li class="con-envelope">info@shadimychoice.com</li>
+                        <li class="con-phone">+91 9770675143</li>
 
                         <li class=""><i class="con-clock fa fa-clock-o"></i> <span class="timeing_opensm">Opening Hours</span><br/>
                             <span class="timeing_open">Mon - Sat</span>: 09:30 to 21:00 <br/>
@@ -53,7 +52,7 @@ $this->load->view('layout/header');
 
                         <li class=""><i class="con-clock fa fa-whatsapp"></i> 
                             <span class="timeing_opensm">WhatsApp (24 Hours)</span><br> 
-                            <b>+(852) 6291 5892</b>
+                            <b>+91 97706 75143</b>
 
                         </li>
 
@@ -66,7 +65,7 @@ $this->load->view('layout/header');
         </div>
 
 
-<hr/>
+        <hr/>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 20px;">
                 <div class="contact-us-left">
