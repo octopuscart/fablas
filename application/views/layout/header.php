@@ -233,9 +233,9 @@ if ($this->checklogin) {
                                                     <li class="active"><a href="#">Home</a>
 
                                                     </li>
-                                                    <li><a href="about.html">Search Partners</a></li>
+                                                    <li><a href="<?php echo site_url("Profile/profileList") ?>">Search Partners</a></li>
                                                     <li><a href="shop7.html">Happy Stories</a></li>
-                                                    <li><a href="shop3.html">Order Packages</a></li>
+                                                    <li><a href="<?php echo site_url("our-packages");?>">Order Packages</a></li>
                                                     <li><a href="shop4.html">Become Partner</a></li>
 
                                                     <li><a href="#">FAQ's</a></li>
