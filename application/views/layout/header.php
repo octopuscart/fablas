@@ -152,15 +152,15 @@
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                         <div class="account-wishlist">
                                             <ul>
-<?php
-if ($this->checklogin) {
-    ?>
+                                                <?php
+                                                if ($this->checklogin) {
+                                                    ?>
                                                     <li><a href="<?php echo site_url('Account/profile'); ?>"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
                                                     <li><a href="<?php echo site_url('Account/logout'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 
-    <?php
-} else {
-    ?>
+                                                    <?php
+                                                } else {
+                                                    ?>
                                                     <li><a href="<?php echo site_url('Account/login'); ?>"><i class="fa fa-lock" aria-hidden="true"></i> Account</a></li>
 
                                                     <?php
@@ -210,12 +210,12 @@ if ($this->checklogin) {
 
                                                 </li>
                                                 <li><a href="<?php echo site_url("Profile/profileList") ?>">Search Partners</a></li>
-                                                <li><a href="<?php echo site_url("our-packages");?>">Order Packages</a></li>
+                                                <li><a href="<?php echo site_url("our-packages"); ?>">Order Packages</a></li>
                                                 <li><a href="">Become Partner</a></li>
 
                                                 <li><a href="<?php echo site_url("privacy-policy") ?>"">Privacy Policy</a></li>
                                                 <li><a href="<?php echo site_url("terms-and-conditions") ?>">Terms & Condition</a></li>
-                                                <li><a href="<?php echo site_url("contact")?>">Contact</a></li>
+                                                <li><a href="<?php echo site_url("contact") ?>">Contact</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -234,12 +234,12 @@ if ($this->checklogin) {
 
                                                     </li>
                                                     <li><a href="<?php echo site_url("Profile/profileList") ?>">Search Partners</a></li>
-                                                    <li><a href="shop7.html">Happy Stories</a></li>
-                                                    <li><a href="<?php echo site_url("our-packages");?>">Order Packages</a></li>
-                                                    <li><a href="shop4.html">Become Partner</a></li>
+                                                    <li><a href="<?php echo site_url("our-packages"); ?>">Order Packages</a></li>
+                                                    <li><a href="">Become Partner</a></li>
 
-                                                    <li><a href="#">FAQ's</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
+                                                    <li><a href="<?php echo site_url("privacy-policy") ?>"">Privacy Policy</a></li>
+                                                    <li><a href="<?php echo site_url("terms-and-conditions") ?>">Terms & Condition</a></li>
+                                                    <li><a href="<?php echo site_url("contact") ?>">Contact</a></li>
                                                 </ul>
                                             </nav>
                                         </div>
