@@ -31,10 +31,10 @@ $this->load->view('layout/header');
                         <input type="password" name="password" placeholder="Password *" required="" />
                         <button class="btn-send-message " name="signIn" type="submit" value="signIn">Login</button>
 
-                        <a class="btn-send-message pull-right" href="<?php echo site_url("Account/loginotp"); ?>">OTP Login</a>
+                        <a class="btn-send-message pull-right" href="<?php echo site_url("Account/loginotp?callback=".$next_link); ?>">OTP Login</a>
                     </form>
                     <hr />
-                    <a class="buttonlink " href="<?php echo site_url("Account/registration"); ?>">Not have account? Register Now</a>
+                    <a class="buttonlink " href="<?php echo site_url("Account/registration?callback=".$next_link); ?>">Not have account? Register Now</a>
 
                 </div>
             </div>

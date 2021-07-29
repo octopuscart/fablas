@@ -83,6 +83,8 @@ class Account extends CI_Controller {
         $data1['msg'] = "";
 
         $this->session->unset_userdata("tempmobieno");
+        $callback = $this->input->get("callback");
+        $data1['next_link'] = $callback;
 
 
         if (isset($_POST['signIn'])) {
@@ -110,8 +112,11 @@ class Account extends CI_Controller {
                     $this->session->set_userdata('logged_in', $sess_data);
 
 
-
-                    redirect('Account/profile');
+                    if ($callback) {
+                        redirect($callback);
+                    } else {
+                        redirect('Account/profile');
+                    }
                 } else {
                     $data1['msg'] = 'Invalid Mobile no.  Or Password, Please Try Again';
                 }
@@ -126,9 +131,11 @@ class Account extends CI_Controller {
     }
 
     function loginotp() {
+        $callback = $this->input->get("callback");
         $data1['msg'] = "";
         // $this->session->unset_userdata("tempmobieno");
         $mobilenotemp = $this->session->userdata('tempmobieno');
+        $data1['next_link'] = $callback;
         $data1['mobile_no'] = $mobilenotemp;
         if (isset($_POST['signIn'])) {
             $username = $mobilenotemp;
@@ -151,7 +158,11 @@ class Account extends CI_Controller {
 
                     $this->session->set_userdata('logged_in', $sess_data);
 
-                    redirect('Account/profile');
+                    if ($callback) {
+                        redirect($callback);
+                    } else {
+                        redirect('Account/profile');
+                    }
                 } else {
                     $data1['msg'] = 'Invalid OTP, Please Try Again';
                 }
@@ -164,11 +175,11 @@ class Account extends CI_Controller {
 
     function registration() {
         $data1['msg'] = "";
-
+        $callback = $this->input->get("callback");
         $link = isset($_GET['page']) ? $_GET['page'] : '';
         $data1['next_link'] = $link;
-
-
+        $callback = $this->input->get("callback");
+        $data1['next_link'] = $callback;
 
         if (isset($_POST['registration'])) {
             $password = $this->input->post('password');
@@ -200,7 +211,11 @@ class Account extends CI_Controller {
                     );
 
                     $this->session->set_userdata('logged_in', $sess_data);
-                    redirect('Account/profile');
+                    if ($callback) {
+                        redirect($callback);
+                    } else {
+                        redirect('Account/profile');
+                    }
                 }
             } else {
                 $data1['msg'] = 'Password did not match.';
@@ -331,52 +346,25 @@ class Account extends CI_Controller {
         
     }
 
-    function payment() {
-        $user_id = $this->user_id;
-        $paytm_mid = "JExSZL42779741544455";
-        require(APPPATH . 'libraries/Paytm/PaytmChecksum.php');
-        $paytmParams = array();
+    function buypackage($package_id) {
+        if ($this->user_id == 0) {
+            redirect('Account/login?callback=' . site_url("Account/buypackage/" . $package_id));
+        }
+        $packageobj = $this->User_model->packageobj($package_id);
 
-        $paytmParams["body"] = array(
-            "requestType" => "Payment",
-            "mid" => "$paytm_mid",
-            "websiteName" => "Shaidimychoice.com",
-            "orderId" => "ORDERID_98765",
-            "callbackUrl" => site_url("Account/paymentCallBack"),
-            "txnAmount" => array(
-                "value" => "1.00",
-                "currency" => "INR",
-            ),
-            "userInfo" => array(
-                "custId" => "CUST_001",
-            ),
-        );
-
-        /*
-         * Generate checksum by parameters we have in body
-         * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
-         */
-        $checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], JSON_UNESCAPED_SLASHES), "YOUR_MERCHANT_KEY");
-
-        $paytmParams["head"] = array(
-            "signature" => $checksum
-        );
-
-        $post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
-
-        /* for Staging */
-        $url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=$paytm_mid&orderId=ORDERID_98765";
-
-        /* for Production */
-// $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=YOUR_MID_HERE&orderId=ORDERID_98765";
-
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
-        $response = curl_exec($ch);
-        print_r($response);
+        $data["packageobj"] = $packageobj;
+        $data["coupon_check"] = "";
+        $data["coupon_array"] = array();
+        if (isset($_POST['applycoupon'])) {
+            $couponcode = $this->input->post("coupon_code");
+            $this->db->from('coupon_set');
+            $this->db->where("coupon_code", $couponcode);
+            $query = $this->db->get();
+            $couponobj = $query->row_array();
+            $data["coupon_array"] = $couponobj;
+            $data["coupon_check"] = "yes";
+        }
+        $this->load->view('pages/buypackage', $data);
     }
 
 }

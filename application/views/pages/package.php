@@ -3,7 +3,6 @@ $this->load->view('layout/header');
 ?>
 
 
-<hr/>
 
 <div class="single-blog-page-area" style="padding: 50px 0 30px;">
     <div class="container">

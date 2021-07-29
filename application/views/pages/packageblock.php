@@ -1,5 +1,5 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-    <h3>Upgrade now & Get Premium benefits for upto 4 weeks extra, FREE!</h3>
+
     <div class="brand-area-box-2" style="">
         <div class="services1-area">
             <div class="container-fluid">
@@ -13,54 +13,28 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-                        <div class="services-area-box bronzegradiant memberpackages" >
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img src="<?php echo base_url(); ?>assets/images/bronze.png" alt="services" class="img-responsive planimages">
-                                </a>
-                                <div class="media-body">
-                                    <span>90 Days</span>
-                                    <h3><a href="#">{{499|currency:"INR "}}</a></h3>
-                                    <p style="letter-spacing: initial">View upto 12 Contact</p>
-                                    <h5>90 Days support</h5>
-                                    <a href="#" class="btn-shop-now">Buy Now<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+
+                    <?php
+                    $packageslist = $this->User_model->packages();
+                    foreach ($packageslist as $key => $package) {
+                        ?>
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+                            <div class="services-area-box <?php echo $package["style"];?> memberpackages" >
+                                <div class="media">
+
+                                    <div class="media-body">
+                                        <span><?php echo $package["valid_days"];?> Days</span>
+                                        <h3><a href="#">{{<?php echo $package["price"];?>|currency:"INR "}}</a></h3>
+                                        <p style="letter-spacing: initial">View up to <?php echo $package["contact_limit"];?> Contact</p>
+                                        <a href="<?php echo site_url("Account/buypackage/".$package["id"])?>" class="btn-shop-now">Buy Now<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="services-area-box silvergradiant memberpackages" >
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img src="<?php echo base_url(); ?>assets/images/silver.png" alt="services" class="img-responsive planimages">
-                                </a>
-                                <div class="media-body">
-                                    <span>120 Days</span>
-                                    <h3><a href="#">{{999|currency:"INR "}}</a></h3>
-                                    <p style="letter-spacing: initial;">View upto 20 Contact</p>
-                                    <h5>90 Days support</h5>
-                                    <a href="#" class="btn-shop-now">Buy Now<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="services-area-box goldengradiant memberpackages" >
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img src="<?php echo base_url(); ?>assets/images/gold.png" alt="services" class="img-responsive planimages">
-                                </a>
-                                <div class="media-body">
-                                    <span>180 Days</span>
-                                    <h3><a href="#">{{1399|currency:"INR "}}</a></h3>
-                                    <p style="letter-spacing: initial" >View upto 30 Contact</p>
-                                    <h5>90 Days support</h5>
-                                    <a href="#" class="btn-shop-now">Buy Now<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <?php
+                    }
+                    ?>
 
                 </div>
             </div>

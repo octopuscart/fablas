@@ -2,17 +2,14 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User_model extends CI_Model
-{
+class User_model extends CI_Model {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
         $this->load->database();
     }
 
-    public function query_exe($query)
-    {
+    public function query_exe($query) {
         $query = $this->db->query($query);
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
@@ -23,8 +20,7 @@ class User_model extends CI_Model
     }
 
     //check user if exist in system
-    function check_user($emailid)
-    {
+    function check_user($emailid) {
         $this->db->where('email', $emailid);
         $query = $this->db->get('admin_users');
         $user_details = $query->row();
@@ -32,27 +28,23 @@ class User_model extends CI_Model
     }
 
     //check user if exist in system
-    function check_user_member($user_id)
-    {
+    function check_user_member($user_id) {
         $this->db->where('user_id', $user_id);
         $query = $this->db->get('shadi_profile');
         $shadi_profile = $query->row();
         return $shadi_profile;
     }
 
-
     //end of check user5
     //get user detail by id
-    function user_details($id)
-    {
+    function user_details($id) {
         $this->db->where('id', $id);
         $query = $this->db->get('member_users');
         return $query->row_array();
     }
 
     //get user address by id
-    function user_address_details($id)
-    {
+    function user_address_details($id) {
         $this->db->where('user_id', $id);
         $this->db->order_by('status', 'desc');
         $query = $this->db->get('shipping_address');
@@ -64,8 +56,7 @@ class User_model extends CI_Model
     }
 
     //get user creadit detail by id
-    function user_credits($id)
-    {
+    function user_credits($id) {
         $this->db->select('sum(credit) as credits');
         $this->db->where('user_id', $id);
         $query = $this->db->get('user_credit');
@@ -89,8 +80,7 @@ class User_model extends CI_Model
 
     // end of user detail by id
     //get user detail by id
-    function user_reports($user_type)
-    {
+    function user_reports($user_type) {
 
         switch ($user_type) {
             case 'Blocked':
@@ -107,8 +97,7 @@ class User_model extends CI_Model
         return $query->result();
     }
 
-    function registration_mail($user_id)
-    {
+    function registration_mail($user_id) {
         $this->db->where('id', $user_id);
         $query = $this->db->get('admin_users');
         $customer = $query->row();
@@ -151,8 +140,7 @@ class User_model extends CI_Model
         }
     }
 
-    function optSending($mobile_no, $testmode = 0)
-    {
+    function optSending($mobile_no, $testmode = 0) {
         $returndata = array("status" => "0", "usercheck" => "0", "message" => "");
         $this->db->from('member_users');
         $this->db->where('contact_no', $mobile_no);
@@ -168,7 +156,7 @@ class User_model extends CI_Model
             $api_key = '56038B83D0D233';
             $contacts = $mobile_no;
 
-            $from = 'FIVEDU';
+            $from = 'SHADMC';
             if ($testmode == 0) {
                 $sms_text = urlencode("$otpcheck is your OTP to login to shadimychoice.com");
                 $ch = curl_init();
@@ -179,12 +167,12 @@ class User_model extends CI_Model
                 $response = curl_exec($ch);
                 curl_close($ch);
                 $strvrfy = $response;
-//                print_r($strvrfy);
+
                 $checkstring = strpos($strvrfy, "SHOOT-ID");
                 if ($checkstring != false) {
                     $returndata["message"] = "OTP sent to your mobile no.";
                     $returndata["status"] = "1";
-                     $this->session->set_userdata('tempmobieno', $mobile_no);
+                    $this->session->set_userdata('tempmobieno', $mobile_no);
                 } else {
                     $returndata["message"] = "OTP sending error.";
                     $returndata["status"] = "2";
@@ -197,6 +185,23 @@ class User_model extends CI_Model
             $returndata["usercheck"] = "0";
         }
         return $returndata;
+    }
+
+    function packages() {
+        $this->db->from('set_packages');
+        $this->db->where('status', "active");
+        $query = $this->db->get();
+        $packagelist = $query->result_array();
+        return $packagelist;
+    }
+    
+    function packageobj($packageid) {
+        $this->db->from('set_packages');
+        $this->db->where("id", $packageid);
+        $this->db->where('status', "active");
+        $query = $this->db->get();
+        $packagobj = $query->row_array();
+        return $packagobj;
     }
 
     // end of user detail by id

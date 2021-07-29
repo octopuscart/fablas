@@ -1858,3 +1858,21 @@ h3.reviewcheck {
 .stepitem .btn-danger i.fa.fa-arrow-right {
     float: right;
 }
+
+.main-menu-area nav ul > li > a {
+    /* border-right: 1px solid #b6b6b6; */
+    padding-right: 0px;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 15px;
+    color: #212121;
+    margin-right: 25px;
+    line-height: 1;
+    font-weight: bold;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
