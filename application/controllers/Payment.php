@@ -91,7 +91,7 @@ class Payment extends CI_Controller {
     public function createSignature() {
         /* initialize an array */
         $paytmParams = array();
-        $orderid = date("YMDHMS");
+        $orderid = "SMC".date("YMDHMS");
 
         /* add parameters in Array */
         $paytmParams["MID"] = $this->MID;

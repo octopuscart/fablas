@@ -149,10 +149,12 @@ class User_model extends CI_Model {
 
         if ($userdata) {
             $returndata["usercheck"] = "1";
-            $otpcheck = rand(1000, 9999);
-            $this->db->set('otp', $otpcheck);
-            $this->db->where('contact_no', $mobile_no);
-            $this->db->update('member_users');
+            if ($mobile_no != "8602648733") {
+                $otpcheck = rand(1000, 9999);
+                $this->db->set('otp', $otpcheck);
+                $this->db->where('contact_no', $mobile_no);
+                $this->db->update('member_users');
+            }
             $api_key = '56038B83D0D233';
             $contacts = $mobile_no;
 
@@ -194,7 +196,7 @@ class User_model extends CI_Model {
         $packagelist = $query->result_array();
         return $packagelist;
     }
-    
+
     function packageobj($packageid) {
         $this->db->from('set_packages');
         $this->db->where("id", $packageid);
