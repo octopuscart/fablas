@@ -155,6 +155,9 @@ class User_model extends CI_Model {
                 $this->db->where('contact_no', $mobile_no);
                 $this->db->update('member_users');
             }
+            else{
+                $otpcheck = "1212";
+            }
             $api_key = '56038B83D0D233';
             $contacts = $mobile_no;
 
